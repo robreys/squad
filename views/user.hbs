@@ -1,15 +1,47 @@
-user page
-<h1>{{first_name}} {{last_name}}</h1>
-<h4>Tags</h4>
-<p>
-	{{#each tags}}
-		{{this}}
-	{{/each}}
-</p>
-<h4>Squads</h4>
-{{#each squads}}
-	<a href="/squad/{{id}}">{{name}}</a><br>
-{{/each}}
-<ul>
-	<li><a href="/home">Home</a></li>
-</ul>
+
+ <div class="row_home">
+ <div class="col left">
+      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="100px" style="margin-top: 0px">
+ </div>
+
+<p class="home" ><a href="/" style="color: white;">Logout</a></p>
+<p class="home" ><a href="/user/0" style="color: white;">Profile</a></p>
+<p class="home" ><a href="/home" style="color: white;">Home</a></p>
+</div>
+
+
+
+
+<div class="widget">
+  <div class="cover">
+    <img src="https://scontent.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/1377330_524706804283736_859598964_n.jpg?oh=576717b269995b52d211e5518ec91e41&oe=55487D2E" />
+  </div>
+  <img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/1964836_639852936102455_6791862458353781144_n.jpg?oh=762bf7c279ee48232569ef410c668501&oe=5552FCE4&__gda__=1431198335_536bb3ac5a5e4c02f677af52d1f85d6c" class="photo" />
+  <h1>{{first_name}} {{last_name}}</h1>
+  <h2>University of CA - San Diego</h2>
+  <h3>{{email}}</h3>
+
+  <div class="blog-tags" >
+      <ul  style="
+
+    position: absolute;
+
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);">
+      {{#each tags}}
+      <li><a href="#">{{this}}</a></li>
+		
+		{{/each}}
+      </ul>
+</div>
+
+  <div class="blog-footer" style="padding-top: 50px">
+    <ul>
+    	{{#each squads}}
+      <li><a style="font-size: 10px; "href="/squad/{{id}}">{{name}}</a></li>
+
+      {{/each}}
+      
+    </ul>
+  </div>
