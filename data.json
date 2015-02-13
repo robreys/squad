@@ -18,7 +18,8 @@
 			],
 			"tags": ["basketball"],
 			"members": ["1"],
-			"admin": "0"
+			"admin": "0",
+			"cover": "http://maxpreps.cbsistatic.com/includes/images/sport_icons/Basketball.jpg"
 		},
 		{
 			"id": "1",
@@ -38,7 +39,8 @@
 			],
 			"tags": ["coding"],
 			"members": ["2"],
-			"admin": "0"
+			"admin": "0",
+			"cover": "http://mitosystems.com/wp-content/uploads/2014/11/perfectly-coded-small-business-websitse-1100x825.jpg"
 		}
 	],
 	"users": [

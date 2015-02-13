@@ -17,7 +17,7 @@
   
   <div class="blog-header">
     
-    <div class="blog-cover" style="background: url('http://maxpreps.cbsistatic.com/includes/images/sport_icons/Basketball.jpg');">
+    <div class="blog-cover" style="background: url('{{cover}}');">
       <div class="blog-author">
         <h3><a style="color: white;" href="/user/{{admin.id}}">{{admin.first_name}} {{admin.last_name}}</a></h3>
       </div>
@@ -54,7 +54,7 @@
   
   <div class="blog-footer" >
     <ul>
-      <li class="join" style="float: right;">Join Team</li>
+      <li class="join" style="float: right;"><a href="/squad/{{id}}/join">Join Team</a></li>
       <li class="join"> <a href="/recruit">Recruit</a></li>
       
     </ul>
