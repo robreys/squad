@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', require('./routes/index'));
-router.get('/login', require('./routes/login'));
-router.get('/signup', require('./routes/signup'));
-router.get('/home/:id', require('./routes/home'));
+router.use('/login', require('./routes/login'));
+router.use('/signup', require('./routes/signup'));
+router.get('/home', require('./routes/home'));
 router.get('/create', require('./routes/create'));
 router.get('/find', require('./routes/find'));
 router.get('/user/:id', require('./routes/user'));
