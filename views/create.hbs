@@ -1,16 +1,40 @@
-create team page
-<form method="post" action="/create">
-	<label>Squad Name</label>
-	<input name="name" type="text">
-	<label>Squad Description</label>
-	<input name="description" type="text">
-	<label>Tags</label>
-	<ul>
-		<li>basketball</li>
-	</ul>
-	<button type="submit">Create</button>
+<p class="home" ><a href="/" style="color: white;">Logout</a></p>
+<p class="home" ><a href="/user/0" style="color: white;">Profile</a></p>
+<p class="home" ><a href="/home" style="color: white;">Home</a></p>
+  <div class="landing-logo">
+      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="300px"></div>
+
+
+<h1>create team page</h1>
+
+
+<form action="/create" method="post">
+
+          
+            <div class="field-wrap">
+              <label>
+                SQUAD Name<span class="req">*</span>
+              </label>
+              <input name="name" style="color: white;" type="text" required autocomplete="off" />
+            </div>
+
+       
+
+          <div class="field-wrap">
+            <label>
+              SQUAD Description<span class="req">*</span>
+            </label>
+            <input name="description" style="color: white;" type="text"required autocomplete="off"/>
+          </div>
+
+          <div class="field-wrap">
+            <label>
+              Tags: basketball or coding<span class="req">*</span>
+            </label>
+            <input name="tags" style="color: white;" type="text"required autocomplete="off"/>
+          </div>
+
+       
+
+          <button type="submit" class="button button-block"/>Create</button>
 </form>
-<ul>
-	<li><a href="/squad">Team page</a></li>
-	<li><a href="/home">Home</a></li>
-</ul>
