@@ -1,5 +1,16 @@
 create team page
+<form method="post" action="/create">
+	<label>Squad Name</label>
+	<input name="name" type="text">
+	<label>Squad Description</label>
+	<input name="description" type="text">
+	<label>Tags</label>
+	<ul>
+		<li>basketball</li>
+	</ul>
+	<button type="submit">Create</button>
+</form>
 <ul>
 	<li><a href="/squad">Team page</a></li>
-	<li><a href="/home/{{session_user}}">Home</a></li>
+	<li><a href="/home">Home</a></li>
 </ul>

@@ -1,7 +1,3 @@
-module.exports = function(req, res){
-  res.render('signup');
-};
-
 var express = require('express');
 var router = express.Router();
 
