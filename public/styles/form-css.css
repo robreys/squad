@@ -299,4 +299,217 @@ textarea {
 }
 
 
+/* Lists */
+.list li {
+  background: url(images/icon_arrow_right.png) no-repeat 97% 50%;
+  border-bottom: 1px solid #ccc;
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+.inner {
+  display: table-row;
+  overflow: hidden;
+}
+.li-img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 30%;
+  padding-right: 1em;
+}
+.li-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.li-text {
+  display: table-cell;
+  vertical-align: middle;
+  width: 70%;
+  padding-right: 1em;
+}
+.li-head {
+  margin: 0;
+}
+.li-summary {
+  display: none;
+  margin: 0;
+}
+.li-action {
+  margin: 0;
+}
+
+@media screen and (min-width: 40em) {
+  .list li {
+    background: none;
+  }
+  .li-summary {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  .list li {
+    float: left;
+    width: 50%;
+  }
+  .inner {
+    padding-right: 1em;
+  }
+}
+
+
+/* Wizard */
+.wizard-container{
+   
+    padding-top: 100px;
+    z-index: 3;
+}
+.wizard-card{
+    min-height: 410px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 10px 0;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+}
+
+
+/* TEAMS */
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
+
+/*------------------Page clears and styles-------------------*/
+
+#pageContainer {
+  position:relative;
+  top:0;
+  left:0;
+  margin:0 auto;
+  pading:10px;
+  width:80%;
+  height:100%;
+  
+  border:1px solid rgba(0,0,0,0.2);
+  border-top:0;
+  border-bottom:0;
+}
+
+#backgroundBlur {
+  position:fixed;
+  top:0;
+  margin:0;
+  width:80%;
+  height:100%;
+  z-index:-1;
+  
+  background:url("http://georgianmaxim.com/wp-content/uploads/2013/11/Home.png") center center fixed;
+  background-size:cover;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  
+  filter:blur(3px);
+  -webkit-filter:blur(3px);
+}
+
+
+
+a#expand {
+  color:#fff;
+  text-decoration:none;
+}
+
+a:visited {
+  color:#fff;
+}
+/*-------------------End page clears------------------*/
+
+/*-------------------Profile styles-------------------*/
+#userContainer {
+  display:block;
+  position:relative;
+  top:20px;
+  left:0;
+  margin:0 auto;
+  margin-bottom:20px;
+  padding:10px;
+  width:70%;
+  height:93px;
+  overflow:hidden;
+  
+  box-shadow:0px 4px 10px -4px #000;
+  
+  -webkit-transition:all .25s ease;
+  -moz-transition:all .25s ease;
+  -o-transition:all .25s ease;
+  transition:all .25s ease;
+}
+
+.userImage { /* Used as a container for the profile image */
+  display:block;
+  float:left;
+  position:relative;
+  margin:0;
+  margin-right:10px;
+  padding:0;
+  width:90px;
+  height:90px;
+  
+  border-radius:5px;
+  box-shadow:0px 2px 5px -2px #1e1e1e,
+             -1px 0px 5px -2px #1e1e1e,
+             1px 0px 5px -2px #1e1e1e,
+             0px -1px 5px -2px #1e1e1e;
+  
+  -webkit-transition:all .25s ease;
+  -moz-transition:all .25s ease;
+  -o-transition:all .25s ease;
+  transition:all .25s ease;
+}
+
+.userImage img { /* Actual image style */
+  display:block;
+  float:left;
+  position:relative;
+  width:90px;
+  height:90px;
+  
+  border-radius:5px;
+  
+  -webkit-transition:all .25s ease;
+  -moz-transition:all .25s ease;
+  -o-transition:all .25s ease;
+  transition:all .25s ease;
+}
+
+.userInfo h3 { /* The userInfo class is just a container and makes the code more readable */
+  margin:0;
+  
+  font-family: Arial;
+  font-size:1.3em;
+  font-weight:bold;
+}
+
+.userInfo p {
+  margin-top:0px;
+  
+  font-family: Arial;
+  font-size:.95em;
+  letter-spacing:.5px;
+  line-height:1.15em;
+}
+
+/*----------------Different classes of colors--------------*/
+
+a.pColor:nth-child(odd) div.pColor{
+  color:#1e1e1e;
+  background-color:rgba(255,255,255,0.4);
+}
+
+a.pColor:nth-child(even) div.pColor{
+  color:#fff;
+  background-color:rgba(0,0,0,0.6);
+}
+
 
