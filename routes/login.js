@@ -25,7 +25,7 @@ router.post('/', function(req, res) {
 	}
 
 	//user not found
-	res.rendirect('login');
+	res.redirect('login');
 });
 
 module.exports = router;
