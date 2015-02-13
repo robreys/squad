@@ -1,11 +1,14 @@
 home page
+<h3>Currenty logged in: {{first_name}} {{last_name}}</h3>
 <ul>
 	<li><a href="/find">Find a team</a></li>
 	<li><a href="/create">Create a team</a></li>
-	<li><a href="/account">Your account</a></li>
+	<li><a href="/user/{{id}}">Your account page</a></li>
 </ul>
 
-Your teams
+Your squads
 <ul>
-	<li><a href="/team">team</a></li>
+{{#each squads}}
+	<li><a href="/squad/{{id}}">{{name}}</a></li>
+{{/each}}
 </ul>

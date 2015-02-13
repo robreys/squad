@@ -1,0 +1,15 @@
+user page
+<h1>{{first_name}} {{last_name}}</h1>
+<h4>Tags</h4>
+<p>
+	{{#each tags}}
+		{{this}}
+	{{/each}}
+</p>
+<h4>Squads</h4>
+{{#each squads}}
+	<a href="/squad/{{id}}">{{name}}</a><br>
+{{/each}}
+<ul>
+	<li><a href="/home/{{id}}">Home</a></li>
+</ul>

@@ -1,7 +1,18 @@
 find page
 
 All teams relevant to your tags
+
+{{#each squads}}
+	<div>
+		<h3><a href="/squad/{{id}}">{{name}}</a></h3>
+		<p>{{description}}</p>
+		<p> Tags: 
+			{{#each tags}}
+				{{this}} 
+			{{/each}}
+		</p>
+	</div>
+{{/each}}
 <ul>
-	<li><a href="/team">team</a></li>
-	<li><a href="/home">Home</a></li>
+	<li><a href="/home/{{session_user}}">Home</a></li>
 </ul>

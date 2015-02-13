@@ -1,0 +1,73 @@
+{
+	"squads": [
+		{
+			"id": "0",
+			"name": "Rob's Basketball Squad",
+			"description": "Casual sunday basketball.",
+			"feed": [
+				{
+					"author": "0",
+					"message": "Join my team!",
+					"timestamp": "2015-02-12T02:01:08-08:00"
+				},
+				{
+					"author": "1",
+					"message": "Hey man! I'm interested. Add me on FB!",
+					"timestamp": "2015-02-12T02:03:08-08:00"
+				}
+			],
+			"tags": ["basketball"],
+			"members": ["1"],
+			"admin": "0"
+		},
+		{
+			"id": "1",
+			"name": "Coding Squad",
+			"description": "Coding to the next level.",
+			"feed": [
+				{
+					"author": "0",
+					"message": "Join my team!",
+					"timestamp": "2015-02-12T02:04:08-08:00"
+				},
+				{
+					"author": "2",
+					"message": "Hey man! I'm interested. Add me on FB!",
+					"timestamp": "2015-02-12T02:05:08-08:00"
+				}
+			],
+			"tags": ["coding"],
+			"members": ["2"],
+			"admin": "0"
+		}
+	],
+	"users": [
+		{
+			"id": "0",
+			"first_name": "Roberto",
+			"last_name": "Reyes",
+			"password": "password",
+			"email": "rob@gmail.com",
+			"tags": ["basketball", "coding"],
+			"squads": ["0", "1"]
+		},
+		{
+			"id": "1",
+			"first_name": "Alexes",
+			"last_name": "Macedo",
+			"password": "password",
+			"email": "ama@gmail.com",
+			"tags": ["basketball", "coding"],
+			"squads": ["0"]
+		},
+		{
+			"id": "2",
+			"first_name": "Alex",
+			"last_name": "Buity",
+			"password": "password",
+			"email": "abu@gmail.com",
+			"tags": ["coding"],
+			"squads": ["1"]
+		}
+	]
+}

@@ -1,3 +1,4 @@
 module.exports = function(req, res){
-  res.render('home');
+	req.session.user = req.params.id;
+  res.render('home', data.users[req.params.id]);
 };
