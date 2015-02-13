@@ -1,14 +1,34 @@
-home page
-<h3>Currenty logged in: {{first_name}} {{last_name}}</h3>
-<ul>
-	<li><a href="/find">Find a team</a></li>
-	<li><a href="/create">Create a team</a></li>
-	<li><a href="/user/{{id}}">Your account page</a></li>
-</ul>
+<p class="home" ><a href="/" style="color: white;">Logout</a></p>
+<p class="home" ><a href="/user/0" style="color: white;">Profile</a></p>
+  <div class="landing-logo">
+      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="300px"></div>
 
-Your squads
+
+
+<h1>Currenty logged in: <strong>{{first_name}} {{last_name}}</strong></h1>
+<div style="center;">
+<div class="row_home">
+  <div class="col left">
+  <h1>Navigate:</h1>
+    
+  </div>
+  <div class="col right">
+  <a  href="/find" ><button class="btn find" data-provider="find"><i></i><span>Find a team</span></button></a>
+   <a  href="/create" ><button class="btn create" data-provider="create"><i></i><span>Create a team</span></button></a>
+
+  </div>
+</div>
+
+</div>
+
+<div class="row_home">
+
 <ul>
 {{#each squads}}
 	<li><a href="/squad/{{id}}">{{name}}</a></li>
 {{/each}}
 </ul>
+
+</div>
+
+

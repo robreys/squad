@@ -25,6 +25,7 @@ html {
 body {
   background: #c1bdba;
   font-family: 'Titillium Web', sans-serif;
+  overflow-y: hidden;
 }
 
 a {
@@ -43,10 +44,11 @@ a:hover {
   background-size: cover;
 
   padding: 40px;
-
-  margin: 40px auto;
   border-radius: 4px;
-  box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+  margin: 0;
+  height: 100%;
+
+
 }
 
 .tab-group {
@@ -216,3 +218,85 @@ textarea {
   margin-top: -20px;
   text-align: right;
 }
+
+
+
+
+.row_home {
+  width: 550px;
+  margin: 30px auto;
+}
+
+.col {
+  width: 250px;
+  float: left;
+}
+
+.col.left {
+  font-family: Arial, sans-serif;
+  text-shadow: 1px 1px 0px #fff;
+  color: #333;
+  padding-bottom: 10px;
+}
+
+.col.right {
+  margin-left: 20px;
+  padding-left: 20px;
+  border-left: 1px solid #aaa;
+}
+
+
+
+.btn {
+  background-color: #8E8E8E;
+  border: 0;
+  border-radius: 3px;
+  color: #FFF;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px #111;
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  position: relative;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.btn span {
+  font-size: 16px;
+  line-height: 40px;
+}
+
+.btn:active {
+  top: 1px;
+  box-shadow: 1px 1px 2px #000;
+}
+
+.btn i {
+  margin-right: 10px
+}
+
+.find {
+  background-color: #1ab188;
+}
+
+.find i {
+  float: left;
+  width: 44px;
+  height: 40px;
+  background: url("https://cdn1.iconfinder.com/data/icons/freeline/32/find_in_magnifier_magnifying_research_search_view_zoom-16.png") no-repeat center center;
+}
+
+.create {
+  background-color: #1CB5E8;
+}
+
+.create i {
+  float: left;
+  width: 44px;
+  height: 40px;
+  background: url("https://cdn4.iconfinder.com/data/icons/linecon/512/add-16.png") no-repeat center center;
+}
+
+
+
