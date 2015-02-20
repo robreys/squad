@@ -23,8 +23,6 @@ router.post('/', function(req, res) {
 				res.redirect('/home');
 			}
 		});
-	var users = data.users;
-	console.log(users);
 });
 
 module.exports = router;
