@@ -12,7 +12,7 @@
   <div id="backgroundBlur"></div>
   
   {{#each squads}}
-  <a href="/squad/{{id}}" id="expand" class="pColor">
+  <a href="/squad/{{_id}}" id="expand" class="pColor">
 
       <div id="userContainer" class="pColor">
         <div class="userImage"><img src="{{cover}}" /></div>
@@ -31,3 +31,5 @@
   {{/each}}  
 
 </div>
+
+{!-- TODO: if no results, suggest: 'adjust tags to find other squads' --}

@@ -2,29 +2,78 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/:id', function(req, res){
-  res.render('squad', data.squads[req.params.id]);
+	squadModel.findById(req.params.id)
+		.populate('members', '_id first_name last_name')
+		.populate('admin', '_id first_name last_name')
+		.exec(function(err, squad) {
+			res.render('squad', squad);
+		});
 });
 
 router.post('/:id/post', function(req, res) {
-	data.squads[req.params.id].feed.push({
-		author: data.users[req.session.user_id],
+	//create new message
+	(new messageModel({
+		author: req.session.user_id,
 		message: req.body.message,
 		timestamp: Date.now()
+	})).save(function(err, message) {
+		if (err) console.log(err);
+		//add message to squad feed
+		squadModel.findByIdAndUpdate(req.params.id, {
+			$push: {feed: message._id}
+		}, {
+			safe: true, upset: false
+		}, function(err) {
+			if (err) console.log(err);
+			res.redirect('/squad/' + req.params.id);
+		});
 	});
-	res.redirect('/squad/' + req.params.id);
 });
 
 router.get('/:id/join', function(req, res) {
-	var squad = data.squads[req.params.id];
-	var user = data.users[req.session.user_id];
-	for (var i = 0; i < user.squads; i ++) {
-		if (user.squads[i].id == squad.id) {
+	//add user to squad
+	squadModel.findByIdAndUpdate(req.params.id, {
+		$addToSet: {members: req.session.user_id}
+	}, {
+		safe: true, upset: false
+	}, function(err) {
+		if (err) console.log(err);
+		//add squad to user
+		userModel.findByIdAndUpdate(req.session.user_id, {
+			$addToSet: {squads: req.params.id}
+		}, {
+			safe: true, upset: false
+		}, function(err) {
+			if (err) console.log(err);
 			res.redirect('/squad/' + req.params.id);
+		});
+	});
+});
+
+router.get('/:id/recruit', function(req, res) {
+	//retrieve squad
+	squadModel.findById(req.params.id, 'admin tags', function(err, squad) {
+		if (err) console.log(err);
+		//unauthorized recruit
+		if (squad.admin != req.session.user_id) {
+			res.redirect('/squad/' + req.params.id + '?err=unauthorized');
 		}
-	}
-	user.squads.push(squad);
-	squad.members.push(user);
-	res.redirect('/squad/' + req.params.id);
+		else {
+			var nin = squad.members.push(squad.admin);
+			//find relevant squads
+			userModel.find({
+				tags: {$in: squad.tags},
+				_id: {$nin: nin}
+			}, {password: 0, email: 0, squads: 0})
+				.limit(10)
+				.exec(function(err, users) {
+					if (err) console.log(err);
+					res.render('recruit', {users: users});
+				});
+		}
+	});
 });
 
 module.exports = router;
+
+//TODO: 'more' route to load more recruit results

@@ -8,26 +8,29 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
 	var email = req.body.email;
 
-	var users = data.users;
-
-	for (var i = 0; i < users.length; i++) {
-		if (users[i].email == email) {		
-			res.redirect('/signup');
+	//find user in database
+	userModel.findOne({email: email}, function(err, user) {
+		if (err) console.log(err);
+		//user with email already exists
+		if (user) {
+			res.redirect('/signup?err=exists');
 		}
-	}
-
-	users.push({
-		id: users.length,
-		first_name: req.body.first_name,
-		last_name: req.body.last_name,
-		email: email,
-		password: req.body.password,
-		tags: ["basketball", "coding"],
-		squads: []
+		//create user
+		else {
+			(new userModel({
+				first_name: req.body.first_name,
+				last_name: req.body.last_name,
+				email: email,
+				password: req.body.password,
+				tags: ["basketball", "coding"],
+				squads: []
+			})).save(function(err) {
+				if (err) console.log(err);
+				//user created
+				res.redirect('login');
+			});
+		}
 	});
-
-	//user not found
-	res.redirect('login');
 });
 
 module.exports = router;

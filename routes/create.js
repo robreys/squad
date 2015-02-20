@@ -6,25 +6,30 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-	var squads = data.squads;
-
-	var user = data.users[req.session.user_id];
-	console.log(user);
-
-	var squad = {
-		id: squads.length,
+	if (!req.session.user_id) {
+		res.redirect('/login');
+	}
+	//create squad
+	(new squadModel({
 		name: req.body.name,
 		description: req.body.description,
 		feed: [],
 		tags: [req.body.tags],
 		members: [],
-		admin: user,
+		admin: req.session.user_id,
 		cover: "http://www.dukesquad.com/sites/default/files/imagecache/slideshow_full/duke_squad_10_2.jpg"
-	};
-
-	squads.push(squad);
-	user.squads.push(squad);
-	res.redirect('/squad/' + (squads.length - 1));
+	})).save(function(err, squad) {
+		if (err) console.log(err);
+		//add squad to user
+		userModel.findByIdAndUpdate(req.session.user_id, {
+			$addToSet: {squads: squad._id}
+		}, {
+			safe: true, upsert: false
+		}, function(err) {
+			if (err) console.log(err);
+			res.redirect('/squad/' + squad._id);
+		});
+	});
 });
 
 module.exports = router;

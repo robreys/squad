@@ -7,38 +7,17 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var router = require('./router');
 var hbs = require('hbs');
+var mongoose = require('mongoose');
 
-data = require('./data');
+var local_database_name = 'squad';
+var local_database_uri  = 'mongodb://localhost/' + local_database_name
+var database_uri = process.env.MONGOLAB_URI || local_database_uri
+mongoose.connect(database_uri);
 
-var squads = data.squads;
-var users = data.users;
-//populate squad user properties
-
-for (var i = 0; i < squads.length; i++) {
-    var squad = squads[i];
-    //populate members
-    for (var j = 0; j < squad.members.length; j++) {
-        squad.members[j] = users[squad.members[j]];
-    }
-    //populate admin
-    squad.admin = users[squad.admin];
-
-    //populate feed
-    squad.feed.reverse();
-    for (var j = 0; j< squad.feed.length; j++) {
-        squad.feed[j].author = users[squad.feed[j].author];
-    }
-}
-
-//populate users squad properties
-
-for (var i =0; i < users.length; i++) {
-    var user = users[i];
-    //populate squads
-    for (var j = 0; j < user.squads.length; j++) {
-        user.squads[j] = squads[user.squads[j]];
-    }
-}
+//mongoose models
+userModel = require('./models/user');
+squadModel = require('./models/squad');
+messageModel = require('./models/message');
 
 var app = express();
 

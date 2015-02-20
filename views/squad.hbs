@@ -19,7 +19,7 @@
     
     <div class="blog-cover" style="background: url('{{cover}}');">
       <div class="blog-author">
-        <h3><a style="color: white;" href="/user/{{admin.id}}">{{admin.first_name}} {{admin.last_name}}</a></h3>
+        <h3><a style="color: white;" href="/user/{{admin._id}}">{{admin.first_name}} {{admin.last_name}}</a></h3>
       </div>
     </div>
     
@@ -35,7 +35,7 @@
      <div class="blog-tags">
       <ul>
       {{#each members}}
-      <li><a href="/user/{{id}}">{{first_name}} {{last_name}}</a></li>
+      <li><a href="/user/{{_id}}">{{first_name}} {{last_name}}</a></li>
 		
 		{{/each}}
       </ul>
@@ -54,8 +54,8 @@
   
   <div class="blog-footer" >
     <ul>
-      <li class="join" style="float: right;"><a href="/squad/{{id}}/join">Join Team</a></li>
-      <li class="join"> <a href="/recruit">Recruit</a></li>
+      <li class="join" style="float: right;"><a href="/squad/{{_id}}/join">Join Team</a></li>
+      <li class="join"> <a href="/squad/{{_id}}/recruit">Recruit</a></li>
       
     </ul>
   </div>
