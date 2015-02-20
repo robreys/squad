@@ -25,6 +25,24 @@ router.post('/', function(req, res) {
 		});
 	var users = data.users;
 	console.log(users);
+<<<<<<< Updated upstream
+=======
+
+	for (var i = 0; i < users.length; i++) {
+		if (users[i].email == email && users[i].password == pass) {
+			//prep user object for sending
+			var user = users[i];
+			user.password = null;
+			//create user session
+			req.session.user_id = user.id;
+		
+			res.redirect('/home');
+		}
+	}
+
+	//user not found
+	res.redirect('login');
+>>>>>>> Stashed changes
 });
 
 module.exports = router;
