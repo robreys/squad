@@ -6,6 +6,7 @@ router.get('/:id', function(req, res){
 		.populate('members', '_id first_name last_name')
 		.populate('admin', '_id first_name last_name')
 		.exec(function(err, squad) {
+			squad.user_id = req.session.user_id;
 			res.render('squad', squad);
 		});
 });
@@ -52,13 +53,14 @@ router.get('/:id/join', function(req, res) {
 
 router.get('/:id/recruit', function(req, res) {
 	//retrieve squad
-	squadModel.findById(req.params.id, 'admin tags', function(err, squad) {
+	squadModel.findById(req.params.id, 'admin tags members name', function(err, squad) {
 		if (err) console.log(err);
 		//unauthorized recruit
 		if (squad.admin != req.session.user_id) {
 			res.redirect('/squad/' + req.params.id + '?err=unauthorized');
 		}
 		else {
+			console.log(squad);
 			var nin = squad.members.push(squad.admin);
 			//find relevant squads
 			userModel.find({
@@ -68,7 +70,13 @@ router.get('/:id/recruit', function(req, res) {
 				.limit(10)
 				.exec(function(err, users) {
 					if (err) console.log(err);
-					res.render('recruit', {users: users});
+					var data = {
+						squad_id: req.params.id,
+						squad_name: squad.name,
+						user_id: req.session.user_id,
+						users: users
+					};
+					res.render('recruit', data);
 				});
 		}
 	});

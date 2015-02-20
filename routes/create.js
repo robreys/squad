@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.render('create');
+  res.render('create', {user_id: req.session.user_id});
 });
 
 router.post('/', function(req, res) {

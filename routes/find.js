@@ -11,7 +11,7 @@ module.exports = function(req, res){
 			.limit(10)
 			.exec(function(err, squads) {
 				if (err) console.log(err);
-				res.render('find', {squads: squads});
+				res.render('find', {user_id: req.session.user_id, squads: squads});
 			});
 	});
 };
