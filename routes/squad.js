@@ -7,8 +7,37 @@ router.get('/:id', function(req, res){
 		.populate('admin', '_id first_name last_name')
 		.exec(function(err, squad) {
 			squad.user_id = req.session.user_id;
+			if (squad.admin._id == req.session.user_id)
+				squad.adminMode = true;
 			res.render('squad', squad);
 		});
+});
+
+router.get('/:id/edit', function(req, res) {
+	squadModel.findById(req.params.id, function(err, squad) {
+		if (err) console.log(err);
+		if (squad.admin != req.session.user_id) {
+			res.redirect('/login?err=unauthorized');
+		}
+		else {
+			squad.edit = true;
+			squad.tags = squad.tags.join(', ');
+			squad.user_id = req.session.user_id;
+			res.render('create', squad);
+		}
+	});
+});
+
+router.post('/:id/edit', function(req, res) {
+	var tags = req.body.tags.match(/\b[\w]+\b/g);
+	squadModel.findByIdAndUpdate(req.params.id, {
+		name: req.body.name,
+		description: req.body.description,
+		tags: tags
+	}, function(err) {
+		if (err) console.log(err);
+		res.redirect('/squad/' + req.params.id);
+	})
 });
 
 router.post('/:id/post', function(req, res) {
@@ -60,12 +89,11 @@ router.get('/:id/recruit', function(req, res) {
 			res.redirect('/squad/' + req.params.id + '?err=unauthorized');
 		}
 		else {
-			console.log(squad);
-			var nin = squad.members.push(squad.admin);
-			//find relevant squads
+			squad.members.push(squad.admin);
+			//find relevant users
 			userModel.find({
 				tags: {$in: squad.tags},
-				_id: {$nin: nin}
+				_id: {$nin: squad.members}
 			}, {password: 0, email: 0, squads: 0})
 				.limit(10)
 				.exec(function(err, users) {

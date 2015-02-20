@@ -6,7 +6,8 @@ var userSchema = new mongoose.Schema({
 			email: String,
 			password: String,
 			tags: [ String ],
-			squads: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Squad' } ]
+			squads: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Squad' } ],
+			notifications: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Message' } ]
 });
 
 module.exports = mongoose.model('User', userSchema);

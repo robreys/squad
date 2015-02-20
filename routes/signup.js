@@ -17,12 +17,13 @@ router.post('/', function(req, res) {
 		}
 		//create user
 		else {
+			var tags = req.body.tags.match(/\b[\w]+\b/g);
 			(new userModel({
 				first_name: req.body.first_name,
 				last_name: req.body.last_name,
 				email: email,
 				password: req.body.password,
-				tags: ["basketball", "coding"],
+				tags: tags,
 				squads: []
 			})).save(function(err) {
 				if (err) console.log(err);

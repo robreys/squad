@@ -29,19 +29,37 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);">
+      <li>Tags: </li>
       {{#each tags}}
       <li><a href="#">{{this}}</a></li>
 		
 		{{/each}}
       </ul>
 </div>
+<div class="blog-tags" style="margin-top:50px" >
+    <ul style="
 
-  <div class="blog-footer" style="padding-top: 50px">
-    <ul>
-    	{{#each squads}}
-      <li><a style="font-size: 10px; "href="/squad/{{_id}}">{{name}}</a></li>
+    position: absolute;
+
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);">
+      <li>Squads: </li>
+      {{#each squads}}
+      <li><a href="/squad/{{_id}}">{{name}}</a></li>
 
       {{/each}}
+      
+    </ul>
+  </div>
+
+  <div class="blog-footer" style="margin-top: 85px">
+    <ul style="margin-top: 12px">
+    	{{#if admin}}
+      <li>&nbsp</li>
+      <li class="join" style="float: right;"><a href="/user/{{_id}}/edit">Edit</a></li>
+
+      {{/if}}
       
     </ul>
   </div>

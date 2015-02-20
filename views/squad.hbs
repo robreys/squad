@@ -25,37 +25,46 @@
     
   </div>
 
+
   <div class="blog-body">
     <div class="blog-title">
       <h1><a href="#">{{name}}</a></h1>
     </div>
-    <div class="blog-summary">
-      <p>{{description}}</p>
-    </div>
-     <div class="blog-tags">
-      <ul>
-      {{#each members}}
-      <li><a href="/user/{{_id}}">{{first_name}} {{last_name}}</a></li>
-		
-		{{/each}}
-      </ul>
-    </div>
-    <div class="blog-tags">
-      <ul>
-      {{#each tags}}
-      <li><a href="#">{{this}}</a></li>
-		
-		{{/each}}
-   
-        
-      </ul>
-    </div>
+
+      <div class="blog-summary">
+        <p><span style="color:#000;">Description: </span>{{description}}</p>
+      </div>
+       <div class="blog-tags">
+        <ul>
+        <li>Members:</li>
+        {{#each members}}
+        <li><a href="/user/{{_id}}">{{first_name}} {{last_name}}</a></li>
+  		
+  		{{/each}}
+        </ul>
+      </div>
+      <div class="blog-tags">
+        <ul>
+        <li>Tags:</li>
+        {{#each tags}}
+        <li><a href="#">{{this}}</a></li>
+  		
+  		{{/each}}
+     
+          
+        </ul>
+      </div>
   </div>
   
   <div class="blog-footer" >
     <ul>
-      <li class="join" style="float: right;"><a href="/squad/{{_id}}/join">Join Team</a></li>
-      <li class="join"> <a href="/squad/{{_id}}/recruit">Recruit</a></li>
+      {{#if adminMode}}
+        <li class="join"> <a href="/squad/{{_id}}/recruit">Recruit</a></li>
+        <li class="join" style="float: right;"><a href="/squad/{{_id}}/edit">Edit</a></li>
+      {{else}}
+        <li class="join" style="float: right;"><a href="/squad/{{_id}}/join">Join Team</a></li>
+      {{/if}}
+      
       
     </ul>
   </div>

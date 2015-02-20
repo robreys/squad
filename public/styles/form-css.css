@@ -969,3 +969,48 @@ a.pColor:nth-child(even) div.pColor{
   border-radius: 0 0 3px 0;
 }
 
+/* CSS FILE PAGE
+
+/* Recruit Page */
+section {
+  width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 1em;
+  overflow: hidden;
+}
+section div {
+  margin: 0 0 2em 0;
+}
+
+.search-form {
+  text-align: left;
+}
+.search-form input, .search-form button {
+  border: none;
+  padding: .5em;
+  background: rgba(255, 255, 255, 0.5);
+  color: #555;
+}
+
+.wrap {
+  display: table;
+  background: #000;
+  margin-right: .5em;
+  padding: .5em;
+  width: 46%;
+  float: left;
+}
+.wrap:nth-child(odd) {
+  margin-right: 1em;
+}
+.wrap img {
+  display: inline-block;
+}
+.wrap .name {
+  display: table-cell;
+  width: 90%;
+  vertical-align: middle;
+  position: relative;
+  left: 1em;
+}

@@ -9,12 +9,13 @@ router.post('/', function(req, res) {
 	if (!req.session.user_id) {
 		res.redirect('/login');
 	}
+	var tags = req.body.tags.match(/\b[\w]+\b/g);
 	//create squad
 	(new squadModel({
 		name: req.body.name,
 		description: req.body.description,
 		feed: [],
-		tags: [req.body.tags],
+		tags: tags,
 		members: [],
 		admin: req.session.user_id,
 		cover: "http://www.dukesquad.com/sites/default/files/imagecache/slideshow_full/duke_squad_10_2.jpg"

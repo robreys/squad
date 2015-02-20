@@ -9,5 +9,6 @@ router.use('/create', require('./routes/create'));
 router.get('/find', require('./routes/find'));
 router.use('/user', require('./routes/user'));
 router.use('/squad', require('./routes/squad'));
+router.use('/invite', require('./routes/invite'));
 
 module.exports = router;

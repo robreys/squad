@@ -45,31 +45,25 @@
 	],
 	"users": [
 		{
-			"id": "0",
 			"first_name": "Roberto",
 			"last_name": "Reyes",
 			"password": "password",
 			"email": "rob@gmail.com",
-			"tags": ["basketball", "coding"],
-			"squads": ["0", "1"]
+			"tags": ["basketball", "coding"]
 		},
 		{
-			"id": "1",
 			"first_name": "Alexes",
 			"last_name": "Macedo",
 			"password": "password",
 			"email": "ama@gmail.com",
-			"tags": ["basketball", "coding"],
-			"squads": ["0"]
+			"tags": ["basketball", "coding"]
 		},
 		{
-			"id": "2",
 			"first_name": "Alex",
 			"last_name": "Buity",
 			"password": "password",
 			"email": "abu@gmail.com",
-			"tags": ["coding"],
-			"squads": ["1"]
+			"tags": ["coding"]
 		}
 	]
 }

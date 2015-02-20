@@ -4,7 +4,7 @@ module.exports = function(req, res){
 			//don't return password
 			password: 0
 		})
-		.populate('squads', '_id name')
+		.populate('notifications')
 		.exec(function(err, user) {
 			if (err) console.log(err);
 			//user not logged in
@@ -12,7 +12,11 @@ module.exports = function(req, res){
 				res.redirect('/login');
 			}
 			else {
-				res.render('home', user);
+				squadModel.populate(user.notifications, {path: 'author'} , function(err) {
+					if (err) console.log(err);
+					res.render('home', user);
+				});
+				
 			}
 		});
 };

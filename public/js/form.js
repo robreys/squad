@@ -27,6 +27,19 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 
 });
 
+$('.invite').click(function() {
+  var req = $(this).data('req');
+  alert('Invitation sent!');
+  $.post('/invite', req);
+});
+
+$('.rm-notif').click(function(e) {
+  e.preventDefault();
+  $(this).parent().fadeOut().remove();
+  var req = $(this).data('req');
+  $.post('/user/' + req.user_id + '/edit', req);
+  
+});
 /*
 $('.tab a').on('click', function (e) {
   
