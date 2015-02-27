@@ -2,6 +2,9 @@ module.exports = function(req, res){
 	//retrieve user
 	userModel.findById(req.session.user_id, 'tags', function(err, user) {
 		if (err) console.log(err);
+		//convert tags to lowercase
+		user.tags = user.tags.join().toLowerCase().split(',');
+		console.log(user.tags);
 		//find relevant squads
 		squadModel.find({
 			tags: {$in: user.tags},

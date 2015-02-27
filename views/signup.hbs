@@ -1,4 +1,6 @@
-<p class="home" ><a href="/" style="color: white;">Home</a></p>
+{{#if edit}}
+  <p class="home" ><a href="/home" style="color: white;">Home</a></p>
+{{/if}}
   <div class="landing-logo">
       <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="300px"></div>
 
@@ -72,9 +74,10 @@
           </div>
 
           {{#if edit}}
-            <button type="submit" class="button button-block"/>Edit</button>
+            <button type="submit" class="button button-block"/>Done</button>
           {{else}}
             <button type="submit" class="button button-block"/>Get Started</button>
+            <p style="text-align:center;font-size:2em;color:#fff">Already have an account? <a style="color:#179B77" href='/login'>Login here.</a></p>
           {{/if}}
         </form>
       </div>

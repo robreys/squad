@@ -3,13 +3,19 @@ var router = express.Router();
 
 router.get('/:id', function(req, res){
 	squadModel.findById(req.params.id)
-		.populate('members', '_id first_name last_name')
 		.populate('admin', '_id first_name last_name')
 		.exec(function(err, squad) {
 			squad.user_id = req.session.user_id;
-			if (squad.admin._id == req.session.user_id)
+			if (squad.admin._id == req.session.user_id) {
 				squad.adminMode = true;
-			res.render('squad', squad);
+			}
+			else if (squad.members.indexOf(req.session.user_id) > -1) {
+				squad.member = true;
+			}
+			squadModel.populate(squad, {path: 'members', select: 'id first_name last_name'}, function(err) {
+				if (err) console.log(err);
+				res.render('squad', squad);
+			});
 		});
 });
 
@@ -29,7 +35,8 @@ router.get('/:id/edit', function(req, res) {
 });
 
 router.post('/:id/edit', function(req, res) {
-	var tags = req.body.tags.match(/\b[\w]+\b/g);
+	var tags = req.body.tags.toLowerCase();
+	tags = tags.match(/\b[\w]+\b/g);
 	squadModel.findByIdAndUpdate(req.params.id, {
 		name: req.body.name,
 		description: req.body.description,
