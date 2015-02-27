@@ -87,6 +87,15 @@ router.get('/:id/join', function(req, res) {
 	});
 });
 
+router.get('/:id/leave', function(req, res) {
+	squadModel.findByIdAndUpdate(req.params.id, {
+		$pull: {members: req.session.user_id}
+	}, function(err) {
+		if (err) console.log(err);
+		res.redirect('/squad/' + req.params.id);
+	});
+});
+
 router.get('/:id/recruit', function(req, res) {
 	//retrieve squad
 	squadModel.findById(req.params.id, 'admin tags members name', function(err, squad) {

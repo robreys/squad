@@ -223,7 +223,9 @@ textarea {
 
 
 .row_home {
-  width: 550px;
+  /*roberto*/
+  width: 100%;
+  /*width: 550px;*/
   margin: 30px auto;
 }
 
@@ -885,7 +887,9 @@ a.pColor:nth-child(even) div.pColor{
 .widget
 {
   position: relative;
-  width: 400px;
+  /*roberto*/
+  width: 100%;
+  /*width: 400px;*/
   height: 450px;
   margin: 50px auto;
   background: #FFF;
