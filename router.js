@@ -13,9 +13,9 @@ router.use('/invite', require('./routes/invite'));
 
 router.get('/help', require('./routes/help'));
 
-
+/*
 router.get('/test', require('./routes/test'));
-router.get('/test-login', require('./routes/test-login'));
+router.get('/test-login', require('./routes/test-login'));*/
 
 //redesigned page
 router.get('/redesigned', function(req, res) {

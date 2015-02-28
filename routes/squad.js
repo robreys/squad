@@ -4,10 +4,13 @@ var router = express.Router();
 router.get('/:id', function(req, res){
 	squadModel.findById(req.params.id)
 		.populate('admin', '_id first_name last_name')
+		.populate('feed')
 		.exec(function(err, squad) {
+			//console.log(squad.feed);
 			squad.user_id = req.session.user_id;
 			if (squad.admin._id == req.session.user_id) {
 				squad.adminMode = true;
+				squad.member = true;
 			}
 			else if (squad.members.indexOf(req.session.user_id) > -1) {
 				squad.member = true;

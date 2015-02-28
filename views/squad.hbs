@@ -71,7 +71,7 @@
       
       
     </ul>
-
+{{#if member}}
     <header class="clearfix">
       
       
@@ -88,11 +88,13 @@
 
         <hr>
 
-        <div class="chat-message clearfix">
+        
           
-          <img src="http://lorempixum.com/32/32/people" alt="" width="64" height="64">
+          
           {{#each feed}}
+          <div class="chat-message clearfix">
 
+          <img src="http://lorempixum.com/32/32/people" alt="" width="64" height="64">
           <div class="chat-message-content clearfix">
             
             <span class="chat-time">{{timestamp}}</span>
@@ -112,11 +114,11 @@
 
       <p class="chat-feedback">Join the conversation!</p>
 
-      <form action="#" method="post">
+      <form action="/squad/{{_id}}/post" method="post">
 
         <fieldset>
           
-          <input type="text" placeholder="Type your message…" autofocus>
+          <input name="message" type="text" placeholder="Type your message…" autofocus>
           <input type="hidden">
 
         </fieldset>
@@ -124,6 +126,8 @@
       </form>
 
     </div> <!-- end chat -->
+    {{/if}}
+
   </div>
 
 </div>
