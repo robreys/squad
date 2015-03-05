@@ -1,166 +1,134 @@
 
- <div class="row_home">
- <div class="col left">
-      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="100px" style="margin-top: 0px">
- </div>
-
-<p class="home" ><a href="/" style="color: white;">Logout</a></p>
-<p class="home" ><a href="/user/{{user_id}}" style="color: white;">Profile</a></p>
-<p class="home" ><a href="/home" style="color: white;">Home</a></p>
-</div>
 
 
 
 
-
-<div class="blog-container">
-  
-  <div class="blog-header">
-    
-    <div class="blog-cover" style="background: url('{{cover}}');">
-      <div class="blog-author">
-        <h3><a style="color: white;" href="/user/{{admin._id}}">{{admin.first_name}} {{admin.last_name}}</a></h3>
-      </div>
-    </div>
-    
-  </div>
-
-
-  <div class="blog-body">
-    <div class="blog-title">
-      <h1><a href="#">{{name}}</a></h1>
-    </div>
-
-      <div class="blog-summary">
-        <p><span style="color:#000;">Description: </span>{{description}}</p>
-      </div>
-       <div class="blog-tags">
-        <ul>
-        <li>Members:</li>
-        {{#each members}}
-        <li><a href="/user/{{_id}}">{{first_name}} {{last_name}}</a></li>
-  		
-  		{{/each}}
-        </ul>
-      </div>
-      <div class="blog-tags">
-        <ul>
-        <li>Tags:</li>
-        {{#each tags}}
-        <li><a href="#">{{this}}</a></li>
-  		
-  		{{/each}}
-     
+  <body class="o-page">
+    <div id="page">
+      <div id="header">
+        <div class="header-content">
+          <a href="home.html" class="p-link-home"><img src="img/icons/home-24.ico" width="16px" ></a>
           
-        </ul>
+          <a href="javascript:history.back();" class="p-link-back"><img src="img/icons/arrow-24.ico" width="16px;"></a>
+        </div>
       </div>
-  </div>
-  
-  <div class="blog-footer" >
-    <ul>
-      {{#if adminMode}}
-        <li class="join"> <a href="/squad/{{_id}}/recruit">Recruit</a></li>
-        <li class="join" style="float: right;"><a href="/squad/{{_id}}/edit">Edit</a></li>
-      {{else}}
-        {{#if member}}
-          <li class="join" style="float: right;"><a href="/squad/{{_id}}/leave">Leave Team</a></li>
-        {{else}}
-          <li class="join" style="float: right;"><a href="/squad/{{_id}}/join">Join Team</a></li>
-        {{/if}}
-      {{/if}}
-      
-      
-    </ul>
-{{#if member}}
-    <header class="clearfix">
-      
-      
-
-      <h4>Chat</h4>
-
-      <span class="chat-message-counter">3</span>
-
-    </header>
-
-    <div class="chat">
-      
-      <div class="chat-history">
-
-        <hr>
-
+      <div class="bannerPane" style="background: url('img/gallery/code.jpg') no-repeat center center;">
+        <div class="overlay"></div>
+        <div class="s-banner-content" >
+          <div><img  width="100" src="img/squad-crop.png" /></div>
+          <strong>{{name}}</strong>
+        </div>
+      </div>
+      <div id="content">
         
+        <article>
           
-          
-          {{#each feed}}
-          <div class="chat-message clearfix">
-
-          <img src="http://lorempixum.com/32/32/people" alt="" width="64" height="64">
-          <div class="chat-message-content clearfix">
+          <div class="a-meta a-meta-left" style="text-align:center;">
+            <img src="img/icons/user-16.ico"> <a href="/user/{{admin._id}}">{{admin.first_name}} {{admin.last_name}}</a> | <img src="img/icons/calendar-16.ico"> 28 Feb 2015 | <img src="img/icons/conference-16.ico"> 6
+          </div>
+          </br>
+          <p>
+            <span class="c-red">{{description}}</span>
             
-            <span class="chat-time">{{timestamp}}</span>
+          </p>
+          <div class="blog-tags" >
+                  <ul  style="position: relative;">
+                  <li><img src="img/icons/tag-16.ico"></li>
+                  <li><strong>Tags</strong>: </li>
+                  {{#each tags}}
+                    <li><a href="#">{{this}}</a></li>
+                  {{/each}}
+                  <li><a href="#">Coding</a></li>
+                  <li><a href="#">Dance</a></li>
+                  <li><a href="#">Basketball</a></li>
+                  <li><a href="#">Coding</a></li>
+                  <li><a href="#">Dance</a></li>
+                  <li><a href="#">Basketball</a></li>
 
-            <h5>{{author.first_name}} {{author.last_name}}</h5>
+                
+                
+                  </ul>
+            </div>
+            
+            <div class="blog-tags" >
+                  <ul  style="position: relative;">
+                  <li><img src="img/icons/conference-16.ico"></li>
+                  <li><strong>Users</strong>: </li>
+                  {{#each members}}
+                  <li><a href="/user/{{_id}}">{{first_name}} {{last_name}}</a></li>
+      
+                  {{/each}}
+                  <li><a href="#">Alex Test</a></li>
+                  <li><a href="#">Roberto Test</a></li>
+                  <li><a href="#">John Test</a></li>
 
-            <p>{{message}}</p>
+                  </ul>
+            </div>
 
-          </div> <!-- end chat-message-content -->
+                  {{#if adminMode}}
+                  <br/>
+                    <a href="/squad/{{_id}}/recruit">
+                    <input type="submit"  class="btn-normal" value="Recruit">
+                  </a>
+                  <br/>
+                    <a href="/squad/{{_id}}/edit">
+                    <input type="submit"  class="btn-normal" value="Edit">
+                  </a>
 
-        </div> <!-- end chat-message -->
+                  {{else}}
 
-        <hr>
-        {{/each}}
+                 {{#if member}}
+                    <br/>
+                    <a href="/squad/{{_id}}/leave">
+                    <input type="submit"  class="btn-normal" value="Leave Team">
+                  </a>
 
-      </div> <!-- end chat-history -->
-
-      <p class="chat-feedback">Join the conversation!</p>
-
-      <form action="/squad/{{_id}}/post" method="post">
-
-        <fieldset>
+                  {{else}}
+                  <br/>
+                  <a href="/squad/{{_id}}/join">
+                    <input type="submit"  class="btn-normal" value="Join Squad">
+                  </a>
+                    
+                  {{/if}}
+                {{/if}}
           
-          <input name="message" type="text" placeholder="Type your message…" autofocus>
-          <input type="hidden">
+          <div class="article-comments">
+            <h3 class="title"><img src="img/icons/comments-16.ico"> Posts</h3>
+            <ul>
+            {{#each feed}}
+            <li>
+                <img src="http://lorempixel.com/output/people-q-c-150-150-1.jpg" />
+                <p class="c-a-name"><strong>{{author.first_name}} {{author.last_name}}</strong></p>
+                <p class="comment-date">{{timestamp}}</p>
+                <p class="desc">
+                  {{message}}
+                </p>
+              </li>
+           {{/each}}
 
-        </fieldset>
+              <li>
+              
+                <form id="contact" action="#" class="contactForm" method="post">
+                  
+                  
+                  <label>Message</label>
+                  <textarea id="ContactMessage" name="text" placeholder="Message"></textarea>
+                  
+                  <input type="submit"  class="btn-normal" id="SubmitContact" value="Comment">
+                  
+                  <div id="msg" class="notifications" style="display:none"></div>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </article>
 
-      </form>
-
-    </div> <!-- end chat -->
-    {{/if}}
-
-  </div>
-
-</div>
-
-
-
-
-<script type="text/javascript" src="//use.typekit.net/wtt0gtr.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
-
-{{!-- 
-<h1>{{name}}</h1>
-
-
-<h4>Feed</h4>
-<div>
-	{{#each feed}}
-		<p>
-			{{message}}<br>
-			{{author.first_name}} {{author.last_name}} | {{timestamp}}
-		</p>
-	{{/each}}
-</div>
-<h6>Post to Feed</h6>
-<input type="text">
-<button>Post</button>
-<ul>
-	<li><a href="/home">Home</a></li>
-	<li><a href="/recruit">Recruit</a></li>
-</ul>
-
-
---}}
+      </div>
+      <div class="subFooter">A Squad Company.</div>
+      
+      
+      
+    </div>
+  </body>
 
 

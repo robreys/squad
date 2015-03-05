@@ -1,39 +1,59 @@
-<p class="home" ><a href="/" style="color: white;">Logout</a></p>
-<p class="home" ><a href="/user/{{_id}}" style="color: white;">Profile</a></p>
-<p class="home" ><a href="/help" style="color: white;">Help</a></p>
-
-  <div class="landing-logo">
-      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="300px"></div>
 
 
+<body class="o-page p-about">
+    <div id="page">
+      <div id="header" style="background: url("");">
+        <div class="header-content">
+          <a href="/home" class="p-link-home"><img src="http://www.iconsdb.com/icons/preview/white/home-xl.png" width="16px" ></a>
+          
+          <a href="javascript:history.back();" class="p-link-back"><img src="http://www.iconsdb.com/icons/preview/white/undo-4-xl.png" width="16px;"></a>
+        </div>
+      </div>
+      <div class="bannerPane">
+        <div class="overlay"></div>
+        <div class="s-banner-content">
+          <div><img  width="100" src="img/squad-crop.png" /></div>
+          <strong>{{first_name}} {{last_name}}</strong>
+        </div>
+      </div>
+      <div id="content">
+        
+          
+                <div class="dashboard clearfix">
+                    <div class="col1 clearfix">
+                      <a href="/user/{{_id}}">
+                      <div class="big notes-thumb user" >
+                        <span class="icon-font" aria-hidden="true"></span>
+                        <p>My Profile</p><i></i>
+                      </div></a>
+                      <a href="/find">
+                      <div class="small lock-thumb find">
+                         <p> Find Teams </p><i></i>
+                      </div>
+                  </a>
+                    <a href="/create">
+                      <div class="small last cpanel-thumb create" >
+                        <span class="icon-font" aria-hidden="true"></span>
+                        <p> Create Teams </p><i></i>
+                      </div>
+                  </a>
+                      <a href="/find">
+                      <div class="big games-thumb team" >
+                        <span class="icon-font" aria-hidden="true"></span>
+                        <p>My Teams</p><i></i>
+                      </div>
+                      </a>
+                    
+                    
+                </div>
+              </div>
 
-<h1>Currenty logged in: <strong>{{first_name}} {{last_name}}</strong></h1>
-<div style="center;">
-<div class="row_home">
-  <div class="col left">
-  <h1>Navigate:</h1>
-    
-  </div>
-  <div class="col right">
-  <a  href="/find" ><button class="btn find" data-provider="find"><i></i><span>Find a team</span></button></a>
-   <a  href="/create" ><button class="btn create" data-provider="create"><i></i><span>Create a team</span></button></a>
-
-  </div>
-</div>
-
-</div>
-
-<div class="row_home">
-
-<ul style="clear: both; color: #fff; margin-top: 15px">
-{{#each notifications}}
-	<li style="padding-top: 15px">{{message}} Check out <a style="color:#1CB5E8" href="/squad/{{author._id}}">{{author.name}}</a>!
-    <a style="margin-left: 10px; color: #e74c3c" href="#" class="rm-notif" 
-      data-req='{"type": "rm-notif", "user_id": "{{../_id}}", "notif_id": "{{_id}}" }'>remove</a>
-  </li>
-{{/each}}
-</ul>
-
-</div>
+      </div>
+      
+      <div class="subFooter">A Squad Company.</div>
+      
+      
+    </div>
+  </body>
 
 

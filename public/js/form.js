@@ -8,6 +8,8 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
           label.removeClass('active highlight');
         } else {
           label.addClass('active highlight');
+          document.getelementbyid
+          
         }
     } else if (e.type === 'blur') {
     	if( $this.val() === '' ) {
@@ -22,8 +24,11 @@ $('.form').find('input, textarea').on('keyup blur focus', function (e) {
 			} 
       else if( $this.val() !== '' ) {
 		    label.addClass('highlight');
+		   	
 			}
     }
+
+    
 
 });
 
@@ -40,18 +45,4 @@ $('.rm-notif').click(function(e) {
   $.post('/user/' + req.user_id + '/edit', req);
   
 });
-/*
-$('.tab a').on('click', function (e) {
-  
-  e.preventDefault();
-  
-  $(this).parent().addClass('active');
-  $(this).parent().siblings().removeClass('active');
-  
-  target = $(this).attr('href');
 
-  $('.tab-content > div').not(target).hide();
-  
-  $(target).fadeIn(600);
-  
-});*/

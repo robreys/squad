@@ -1,87 +1,121 @@
-<p class="home" ><a href="/help" style="color: white;">Help</a></p>
-{{#if edit}}
-  <p class="home" ><a href="/home" style="color: white;">Home</a></p>
-{{/if}}
-  <div class="landing-logo">
-      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="300px"></div>
+    <style>
+    label {
+        
+        font-size: 16px;
+      }
 
+    h1{
+      margin: 0 0 10px;
+    }
+    .b-c-textpane {
+      bottom: 20px;
+    }
+    form{
+      margin: 0 0 ;
+    }
 
-        <div id="signup"> 
-        {{#if edit}}
-          <h1>Edit Account: {{first_name}} {{last_name}}</h1>
+    </style>
 
-          <form action="/user/{{_id}}/edit" method="post">
-        {{else}}  
-          <h1>Sign Up!</h1>
-
-          <form action="/signup" method="post">
-        {{/if}}
-          <div class="top-row">
-            <div class="field-wrap">
-              {{#if edit}}
-                <label class="active highlight">
-              {{else}}
-                <label>
-              {{/if}}
-                First Name<span class="req">*</span>
-              </label>
-              <input name="first_name" style="color: white;" type="text" required autocomplete="off" value="{{first_name}}"/>
-            </div>
-
-            <div class="field-wrap">
-              {{#if edit}}
-                <label class="active highlight">
-              {{else}}
-                <label>
-              {{/if}}
-                Last Name<span class="req">*</span>
-              </label>
-              <input name="last_name" style="color: white;" type="text"required autocomplete="off" value="{{last_name}}"/>
-            </div>
-          </div>
-
-          <div class="field-wrap">
-            {{#if edit}}
-              <label class="active highlight">
-            {{else}}
-              <label>
-            {{/if}}
-              UCSD Email Address<span class="req">*</span>
-            </label>
-            <input name="email" style="color: white;" type="email"required autocomplete="off" value="{{email}}"/>
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input name="password" style="color: white;" type="password" {{#unless edit}}required{{/unless}} autocomplete="off"/>
-          </div>
-           <div class="field-wrap">
-            <label>
-              Confirm Password<span class="req">*</span>
-            </label>
-            <input style="color: white;" type="password" {{#unless edit}}required{{/unless}} autocomplete="off"/>
-          </div>
-          <div class="field-wrap">
-            {{#if edit}}
-              <label class="active highlight">
-            {{else}}
-              <label>
-            {{/if}}
-              Tags: (ie: basketball, coding)<span class="req">*</span>
-            </label>
-            <input name="tags" style="color: white;" type="text"required autocomplete="off" value="{{tags}}"/>
-          </div>
-
-          {{#if edit}}
-            <button type="submit" class="button button-block"/>Done</button>
-          {{else}}
-            <button type="submit" class="button button-block"/>Get Started</button>
-            <p style="text-align:center;font-size:2em;color:#fff">Already have an account? <a style="color:#179B77" href='/login'>Login here.</a></p>
-          {{/if}}
-        </form>
+<body class="o-page p-home" >
+    <div id="page">
+      <!-- Header -->
+      <div id="header">
+        <div class="header-content">
+          <a href="/home" class="p-link-home"><img src="img/squad-crop.png" width="300px" ></a>
+          <a href="/home" class="p-link-back"><img src="img/icons/arrow-24.ico" width="16px;"></a>
+        </div>
       </div>
+      <!-- Content -->
+      <div id="content">
+        
+        <div class="fluid_container" style="background-image: url(http://georgianmaxim.com/wp-content/uploads/2013/11/Home.png) ">
+          
+          <div class="bannerContent fadeFromBottom">
+                <div class="b-c-textpane">
 
+                    <div id="signup"> 
+                          <h1>Sign Up!</h1>
+                            <div class="form" style="margin: 0 0;">
+                        <form action="/signup" method="post">
+                          
+                              
 
- 
+                              <div class="field-wrap">
+                               
+                                <label >First Name<span class="req">*</span></label>
+                                <input name="first_name" style="color: white;" type="text" required autocomplete="off" />
+                              </div>
+
+                              <div class="field-wrap">
+                               
+                                 <label>Last Name<span class="req">*</span></label>
+                               <input name="last_name" style="color: white;" type="text"required autocomplete="off" />
+                             </div>
+                            
+
+                            <div class="field-wrap">
+                             
+                                <label id="email_address">UCSD Email Address<span class="req">*</span></label>
+                              <input name="email" style="color: white;" type="email"required autocomplete="off" onkeyup="changeLabel_Email()"/>
+                            </div>
+
+                            <div class="field-wrap">
+                              <label> Password<span class="req">*</span></label>
+                              <input name="password" style="color: white;" type="password" {{#unless edit}}required{{/unless}} autocomplete="off"/>
+                            </div>
+
+                             <div class="field-wrap">
+                              <label id="pwd" >Confirm Password<span class="req">*</span></label>
+                              <input style="color: white;" type="password" {{#unless edit}}required{{/unless}} autocomplete="off" onkeyup="changeLabel_Pwd()"/>
+                            </div>
+
+                            <div class="field-wrap">
+                              
+                                <label id="tags_label" >Tags: (ie: basketball, coding)<span class="req">*</span></label>
+                                <textarea rows="4" cols="50" id="Tags"  style="color: white; font-size:16px;"required autocomplete="off"  name="tags" onkeyup="changeLabel_Tag()"></textarea>
+                              
+                            </div>
+                        <button type="submit" class="button button-block" style=" border: 0;
+                                            outline: none;
+                                            border-radius: 0;
+                                            padding: 15px 0;
+                                            font-size: 2rem;
+                                            font-weight: 600;
+                                            text-transform: uppercase;
+                                          letter-spacing: .1em;
+                                          background: #1ab188;
+                                            color: #ffffff;
+                                            -webkit-transition: all 0.5s ease;
+                                                transition: all 0.5s ease;
+                                            -webkit-appearance: none;"/>Get Started</button>
+                              <p style="text-align:center;font-size:16px;color:#fff; padding-top:10px;">Already have an account? <a style="color:#179B77" href='/login'>Login here.</a></p>
+                            
+                          </form>
+                          </div><!-- form -->
+                     </div>
+                </div>
+              </div>
+
+        </div><!-- .fluid_container -->
+        
+        <!-- <a href="#" class="home-footer">
+          About us
+        </a> -->
+      </div>
+      
+      
+    </div>
+    <script type='text/javascript' src='js/form.js'></script> 
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script>
+          function changeLabel_Email(){
+            document.getElementById('email_address').innerHTML = 'Email Add.';
+        }
+        function changeLabel_Pwd(){
+            document.getElementById('pwd').innerHTML = 'Confirm';
+        }
+        function changeLabel_Tag(){
+            document.getElementById('tags_label').innerHTML = 'Tags';
+        }
+      </script>
+  </body>

@@ -5,35 +5,37 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Stylesheet Load -->
-  <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-<link href="/styles/form-css.css" media="screen" rel="stylesheet" type="text/css">
-<link href="/styles/normalize.css" rel="stylesheet" type="text/css">
-	<!--link href="/css/bootstrap.min.css" rel="stylesheet"-->
-	<!--link href="/css/bootstrap-theme.min.css" rel="stylesheet"-->
-	<!-- this is a comment in HTML -->
+		<link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->        
+		<link type="text/css" rel="stylesheet" href="css/jquery.mmenu.all.css" />
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+		<link rel='stylesheet' id='camera-css'  href='css/camera.css' type='text/css' media='all'> 
+		<link rel='stylesheet' id='camera-css'  href='css/custom.css' type='text/css' media='all'> 
+	
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mmenu.min.all.js"></script>
+		<script type="text/javascript" src="js/o-script.js"></script>
+		
+		<script type='text/javascript' src='js/slider/jquery.mobile.customized.min.js'></script>
+		<script type='text/javascript' src='js/slider/jquery.easing.1.3.js'></script> 
+		<script type='text/javascript' src='js/slider/camera.min.js'></script> 
+		
+		<script>
+			jQuery(function(){
+				
+				jQuery('#camera_wrap_4').camera({
+					height: 'auto',
+					loader: 'bar',
+					pagination: false,
+					thumbnails: false,
+					hover: false,
+					opacityOnGrid: false
+				});
+
+			});
+		</script>     
 </head>
 
-<body>
-	<!-- CONTENT BEGIN -->
-<div class="form">
-   
-		
-       
-    	{{{body}}}    
-  
-    <p class="landing-copyright copyright" style="color:white;">A Squad Company.</p>
-     
-</div> <!-- /form -->
-
-	<script src="https://code.jquery.com/jquery.js"></script>
-	   <script src="/js/form.js"></script> 
-	<!--script src="/js/bootstrap.min.js"></script-->
-</body>
+{{{body}}}
 </html>

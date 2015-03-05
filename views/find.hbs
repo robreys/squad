@@ -1,35 +1,79 @@
-<p class="home" ><a href="/" style="color: white;">Logout</a></p>
-<p class="home" ><a href="/user/{{user_id}}" style="color: white;">Profile</a></p>
-<p class="home" ><a href="/home" style="color: white;">Home</a></p>
-  <div class="landing-logo">
-      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="300px"></div>
-
-
-<h1>All <strong>SQUADS</strong> relevant to your tags</h1>
 
 
 
-  <div id="backgroundBlur"></div>
-  
-  {{#each squads}}
-  <a href="/squad/{{_id}}" id="expand" class="pColor">
+<style>
+    .thumblist{
+        float: left;
+        height: 200px;
+        width: 200px;
+        margin: 5px;
+        overflow: hidden;
+    }
 
-      <div id="userContainer" class="pColor">
-        <div class="userImage"><img src="{{cover}}" /></div>
-      
-        <div class="userInfo">
-          <h3>{{name}}</h3>
-          <p>
-            {{description}}
-          </p>
-          <p style="padding-top: 2px; float: right;">
-            Tags: {{#each tags}} {{this}} {{/each}}
-          </p>
+    .thumblist img {
+          display: inline-block;
+          min-width: 100%;
+          min-height: 100%;
+          -ms-interpolation-mode: bicubic; /* Better image scaling in IE */
+      }
+    </style>
+
+  <body class="o-page p-blog">
+    <div id="page">
+      <div id="header">
+        <div class="header-content">
+          <a href="/home" class="p-link-home"><img src="img/icons/home-24.ico" width="16px" ></a>
+          
+          <a href="javascript:history.back();" class="p-link-back"><img src="img/icons/arrow-24.ico" width="16px;"></a>
         </div>
+      </div>
+      <div class="bannerPane">
+        <div class="overlay"></div>
+        <div class="s-banner-content">
+          <div><img  width="100" src="img/squad-crop.png" /></div>
+          <strong>{{first_name}} {{last_name}}</strong>
+          
+        </div>
+      </div>
+      <div id="content">
+        
+        
+        
+          <h3 class="title"><img src="img/icons/tag-24.ico" style="padding-right: 10px"><i></i>Squads based on your tags!</h3>
+          {{#each squads}}
+          <article>
+          <a href="/squad/{{_id}}">
+            <div class="article-img-pane thumblist">
+              <img src="{{cover}}" width="150px"/>
+            </div>
+            <h2>{{name}}</h2>
+            <p class="posts-summary">
+              {{description}}
+            </p>
+          </a>
+          <div class="a-meta">
+            <span>
+            <div class="blog-tags" >
+                  <ul  style="position: relative;">
+                  <li><img src="img/icons/tag-16.ico"></li>
+                  {{#each tags}} <li><a href="#">{{this}}</a></li>{{/each}}
+
+                  </ul>
+            </div>
+          </span>
+            <img src="img/icons/conference-16.ico"> 4
+          </div>
+        </article>
+        {{/each}}
+        
+        
+
+        
+        
+      </div>
+      <div class="subFooter">A Squad Company.</div>
+      
+      
+      
     </div>
-  </a>
-  {{/each}}  
-
-</div>
-
-{!-- TODO: if no results, suggest: 'adjust tags to find other squads' --}
+  </body>

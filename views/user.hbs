@@ -1,65 +1,88 @@
 
- <div class="row_home">
- <div class="col left">
-      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="100px" style="margin-top: 0px">
- </div>
-
-<p class="home" ><a href="/" style="color: white;">Logout</a></p>
-<p class="home" ><a href="/user/{{_id}}" style="color: white;">Profile</a></p>
-<p class="home" ><a href="/home" style="color: white;">Home</a></p>
-</div>
 
 
 
 
-<div class="widget">
-  <div class="cover">
-    <img src="https://scontent.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/1377330_524706804283736_859598964_n.jpg?oh=576717b269995b52d211e5518ec91e41&oe=55487D2E" />
-  </div>
-  <img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/1964836_639852936102455_6791862458353781144_n.jpg?oh=762bf7c279ee48232569ef410c668501&oe=5552FCE4&__gda__=1431198335_536bb3ac5a5e4c02f677af52d1f85d6c" class="photo" />
-  <h1>{{first_name}} {{last_name}}</h1>
-  <h2>University of CA - San Diego</h2>
-  <h3>{{email}}</h3>
 
-  <div class="blog-tags" >
-      <ul  style="
+  <body class="o-page p-product-single">
+    <div id="page">
+      <div id="header">
+        <div class="header-content">
+          <a href="/home" class="p-link-home"><img src="img/icons/home-24.ico" width="16px" ></a>
+          
+          <a href="javascript:history.back();" class="p-link-back"><img src="img/icons/arrow-24.ico" width="16px;"></a>
+        </div>
+      </div>
+      <div class="bannerPane">
+        <div class="overlay"></div>
+        <div class="s-banner-content">
+          <div><img  width="100" src="img/squad-crop.png" /></div>
+          <strong>{{first_name}} {{last_name}}</strong>
+        </div>
+      </div>
+      <div id="content">
+        
+        <article>
 
-    position: absolute;
+          <div class="prod-single-content">
+            
+            <p>
+              Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+            
+            <h3 class="title" style="font-size: 12px"><strong>Email</strong>: {{email}}</h3>
+            <br/>
+            <div class="blog-tags" >
+                  <ul  style="position: relative;">
+                  <li><img src="img/icons/tag-16.ico"></li>
+                  <li><strong>Tags</strong>: </li>
+                        {{#each tags}}
+                      <li><a href="#">{{this}}</a></li>
+                        {{/each}}
+                 
+                  <li><a href="#">Coding</a></li>
+                  <li><a href="#">Dance</a></li>
+                  <li><a href="#">Basketball</a></li>
+                  <li><a href="#">Coding</a></li>
+                  <li><a href="#">Dance</a></li>
+                  <li><a href="#">Basketball</a></li>
+                  <li><a href="#">Coding</a></li>
+                  <li><a href="#">Dance</a></li>
 
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);">
-      <li>Tags: </li>
-      {{#each tags}}
-      <li><a href="#">{{this}}</a></li>
-		
-		{{/each}}
-      </ul>
-</div>
-<div class="blog-tags" style="margin-top:50px" >
-    <ul style="
+                
+                
+                  </ul>
+            </div>
+            
+            <div class="blog-tags" >
+                  <ul  style="position: relative;">
+                  <li><img src="img/icons/conference-16.ico"></li>
+                  <li><strong>Squads</strong>: </li>
 
-    position: absolute;
-
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);">
-      <li>Squads: </li>
-      {{#each squads}}
-      <li><a href="/squad/{{_id}}">{{name}}</a></li>
-
-      {{/each}}
+                            {{#each squads}}
+                            <li><a href="/squad/{{_id}}">{{name}}</a></li>
+                            {{/each}}
+                 
+                  <li><a href="#">Coders4Life</a></li>
+                  <li><a href="#">Money Shooters</a></li>
+                  </ul>
+            </div>
+            <br/>
+            <div class="p-single-meta-shares blog-tags" style="text-align: right; float: right;">
+              {{#if admin}}
       
-    </ul>
-  </div>
+              <ul><li><a href="/user/{{_id}}/edit">Edit</a></li></ul>
+              {{/if}}
+            </div>
+            <br/>
+          </div>
+          
+        </article>
 
-  <div class="blog-footer" style="margin-top: 85px">
-    <ul style="margin-top: 12px">
-    	{{#if admin}}
-      <li>&nbsp</li>
-      <li class="join" style="float: right;"><a href="/user/{{_id}}/edit">Edit</a></li>
-
-      {{/if}}
+      </div>
+      <div class="subFooter">A Squad Company.</div>
       
-    </ul>
-  </div>
+      
+      
+    </div>
+  </body>
