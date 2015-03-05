@@ -7,15 +7,15 @@
     <div id="page">
       <div id="header">
         <div class="header-content">
-          <a href="home.html" class="p-link-home"><img src="img/icons/home-24.ico" width="16px" ></a>
+          <a href="home.html" class="p-link-home"><img src="/img/icons/home-24.ico" width="16px" ></a>
           
-          <a href="javascript:history.back();" class="p-link-back"><img src="img/icons/arrow-24.ico" width="16px;"></a>
+          <a href="javascript:history.back();" class="p-link-back"><img src="/img/icons/arrow-24.ico" width="16px;"></a>
         </div>
       </div>
       <div class="bannerPane" style="background: url('img/gallery/code.jpg') no-repeat center center;">
         <div class="overlay"></div>
         <div class="s-banner-content" >
-          <div><img  width="100" src="img/squad-crop.png" /></div>
+          <div><img  width="100" src="/img/squad-crop.png" /></div>
           <strong>{{name}}</strong>
         </div>
       </div>
@@ -24,7 +24,7 @@
         <article>
           
           <div class="a-meta a-meta-left" style="text-align:center;">
-            <img src="img/icons/user-16.ico"> <a href="/user/{{admin._id}}">{{admin.first_name}} {{admin.last_name}}</a> | <img src="img/icons/calendar-16.ico"> 28 Feb 2015 | <img src="img/icons/conference-16.ico"> 6
+            <img src="/img/icons/user-16.ico"> <a href="/user/{{admin._id}}">{{admin.first_name}} {{admin.last_name}}</a> | <img src="/img/icons/calendar-16.ico"> 28 Feb 2015 | <img src="/img/icons/conference-16.ico"> 6
           </div>
           </br>
           <p>
@@ -33,7 +33,7 @@
           </p>
           <div class="blog-tags" >
                   <ul  style="position: relative;">
-                  <li><img src="img/icons/tag-16.ico"></li>
+                  <li><img src="/img/icons/tag-16.ico"></li>
                   <li><strong>Tags</strong>: </li>
                   {{#each tags}}
                     <li><a href="#">{{this}}</a></li>
@@ -52,7 +52,7 @@
             
             <div class="blog-tags" >
                   <ul  style="position: relative;">
-                  <li><img src="img/icons/conference-16.ico"></li>
+                  <li><img src="/img/icons/conference-16.ico"></li>
                   <li><strong>Users</strong>: </li>
                   {{#each members}}
                   <li><a href="/user/{{_id}}">{{first_name}} {{last_name}}</a></li>
@@ -93,7 +93,7 @@
                 {{/if}}
           
           <div class="article-comments">
-            <h3 class="title"><img src="img/icons/comments-16.ico"> Posts</h3>
+            <h3 class="title"><img src="/img/icons/comments-16.ico"> Posts</h3>
             <ul>
             {{#each feed}}
             <li>
