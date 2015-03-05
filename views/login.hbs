@@ -1,0 +1,82 @@
+
+
+
+  <body class="o-page p-home">
+    <div id="page">
+      <!-- Header -->
+      <div id="header">
+        <div class="header-content">
+          <a href="index.html" class="p-link-home"><img src="img/squad-crop.png" width="300px" ></a>
+          <a href="index.html" class="p-link-back"><img src="img/icons/arrow-24.ico" width="16px;"></a>
+        </div>
+      </div>
+      <!-- Content -->
+      <div id="content">
+        
+        <div class="fluid_container" style="background-image: url(http://georgianmaxim.com/wp-content/uploads/2013/11/Home.png) ">
+          <div class=" camera_black_skin camera_emboss pattern_1" id="camera_wrap_4">
+            <div data-thumb="img/gallery/1-th.jpg" data-src="img/gallery/1.jpg"></div>
+            <div data-thumb="img/gallery/2-th.jpg"  data-src="img/gallery/2.jpg"></div>
+            <div data-thumb="img/gallery/3-th.jpg"  data-src="img/gallery/3.jpg"></div>
+            <div data-thumb="img/gallery/3-th.jpg"  data-src="img/gallery/4.jpg"></div>
+          </div><!-- #camera_wrap_3 -->
+          <div class="bannerContent fadeFromBottom">
+                <div class="b-c-textpane">
+                  <div id="login">   
+                          <h1>Welcome Back!</h1>
+                          <div class="form">
+                          <form action="/login" method="post">
+          
+                            <div class="field-wrap">
+                              <label id="email_address">
+                               Email Address<span class="req">*</span>
+                              </label>
+                              <input name="email" style="color: white;" type="email"required autocomplete="off" onkeyup="changeLabel_Email()"/>
+                            </div>
+          
+                          <div class="field-wrap">
+                            <label>
+                                Password<span class="req">*</span>
+                              </label>
+                              <input name="password" style="color: white; background-color: transparent;" type="password"required autocomplete="off"/>
+                            </div>
+                          <button class="button button-block" style=" border: 0;
+                                            outline: none;
+                                            border-radius: 0;
+                                            padding: 15px 0;
+                                            font-size: 2rem;
+                                            font-weight: 600;
+                                            text-transform: uppercase;
+                                          letter-spacing: .1em;
+                                          background: #1ab188;
+                                            color: #ffffff;
+                                            -webkit-transition: all 0.5s ease;
+                                                transition: all 0.5s ease;
+                                            -webkit-appearance: none;"/>Log In</button>
+                          <p style="text-align:center;font-size:16px;color:#fff; padding-top:10px;">New to squad? <a style="color:#179B77" href='/signup'>Sign up here.</a></p>
+                        </div>
+                          </form>
+
+                      </div><!-- login -->
+
+                </div>
+              </div>
+
+        </div><!-- .fluid_container -->
+        
+        <!-- <a href="#" class="home-footer">
+          About us
+        </a> -->
+      </div>
+      
+      
+    </div>
+    <script type='text/javascript' src='js/form.js'></script> 
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <script>
+          function changeLabel_Email(){
+            document.getElementById('email_address').innerHTML = 'Email Add.';
+          
+        }
+      </script>
+  </body>
