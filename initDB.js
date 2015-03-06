@@ -19,7 +19,9 @@ var userModel  = require('./models/user');
 var local_database_name = 'squad';
 var local_database_uri  = 'mongodb://localhost/' + local_database_name
 var database_uri = process.env.MONGOLAB_URI || local_database_uri
-mongoose.connect(database_uri);
+mongoose.connect(database_uri, function() {
+  mongoose.connection.db.dropDatabase();
+});
 
 
 // Do the initialization here
@@ -30,7 +32,6 @@ var data = require('./data.json');
 // Step 2: Remove all existing documents
 userModel
   .find({})
-  .remove()
   .exec(onceClear); // callback to continue at
 
 var saveCount = data.users.length
