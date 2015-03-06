@@ -1,0 +1,39 @@
+<p class="home" ><a href="/" style="color: white;">Logout</a></p>
+<p class="home" ><a href="/user/{{_id}}" style="color: white;">Profile</a></p>
+<p class="home" ><a href="/help" style="color: white;">Help</a></p>
+
+  <div class="landing-logo">
+      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="300px"></div>
+
+
+
+<h1>Currenty logged in: <strong>{{first_name}} {{last_name}}</strong></h1>
+<div style="center;">
+<div class="row_home">
+  <div class="col left">
+  <h1>Navigate:</h1>
+    
+  </div>
+  <div class="col right">
+  <a  href="/find" ><button class="btn find" data-provider="find"><i></i><span>Find a team</span></button></a>
+   <a  href="/create" ><button class="btn create" data-provider="create"><i></i><span>Create a team</span></button></a>
+
+  </div>
+</div>
+
+</div>
+
+<div class="row_home">
+
+<ul style="clear: both; color: #fff; margin-top: 15px">
+{{#each notifications}}
+	<li style="padding-top: 15px">{{message}} Check out <a style="color:#1CB5E8" href="/squad/{{author._id}}">{{author.name}}</a>!
+    <a style="margin-left: 10px; color: #e74c3c" href="#" class="rm-notif" 
+      data-req='{"type": "rm-notif", "user_id": "{{../_id}}", "notif_id": "{{_id}}" }'>remove</a>
+  </li>
+{{/each}}
+</ul>
+
+</div>
+
+

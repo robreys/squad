@@ -1,0 +1,33 @@
+{{!-- Recruit.HBS --}}
+<p class="home" ><a href="/" style="color: white;">Logout</a></p>
+<p class="home" ><a href="/user/{{user_id}}" style="color: white;">Profile</a></p>
+<p class="home" ><a href="/home" style="color: white;">Home</a></p>
+<p class="home" ><a href="/squad/{{squad_id}}">{{squad_name}}</a></p>
+
+  <div class="landing-logo">
+      <img  src="http://41.media.tumblr.com/ffeaf7c30f49a9c8f9ae13d6b9704cd0/tumblr_niz5aaFS9M1u9phyeo1_1280.png" alt="img" width="300px"></div>
+
+
+<h1>Recruiting <strong>Users</strong> for <strong>{{squad_name}}</strong></h1>
+
+
+  
+  {{#each users}}
+  <a href="/user/{{_id}}" id="expand" class="pColor">
+
+      <div id="userContainer" class="pColor">
+        <div class="userImage"><img src="http://lorempixel.com/40/40/people/" alt="cover" /></div>
+      
+        <div class="userInfo">
+          <h3>{{first_name}} {{last_name}}</h3>
+          <p style="padding-top: 2px; float: right;">
+            Tags: {{#each tags}} {{this}} {{/each}}
+          </p>
+
+        </div>
+    </div>
+  </a>
+  <button style="margin-left:50%; transform: translateX(-50%);
+    margin-bottom:2px" class="invite" data-req='{"from": "{{../squad_id}}", "to": "{{_id}}"}'>Invite</button>
+  {{/each}}  
+

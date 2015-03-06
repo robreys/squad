@@ -41,13 +41,7 @@ $(function(){
 		}
 	});
 
-	//---------------------------------------------------------------------- mmenu
-	$('nav#menu').mmenu({
-		 searchfield : false,
-		 slidingSubmenus: true,
-         position: "top",
-         zposition: "front"
-	});
+
 		
 	//---------------------------------------------------------------------- BANNER SLIDER
 	if($(".flexslider").length != 0) {
