@@ -1,45 +1,15 @@
 {
 	"squads": [
 		{
-			"id": "0",
 			"name": "Rob's Basketball Squad",
 			"description": "Casual sunday basketball.",
-			"feed": [
-				{
-					"author": "0",
-					"message": "Join my team!",
-					"timestamp": "2015-02-12T02:01:08-08:00"
-				},
-				{
-					"author": "1",
-					"message": "Hey man! I'm interested. Add me on FB!",
-					"timestamp": "2015-02-12T02:03:08-08:00"
-				}
-			],
 			"tags": ["basketball"],
-			"members": ["1"],
-			"admin": "0",
 			"cover": "http://maxpreps.cbsistatic.com/includes/images/sport_icons/Basketball.jpg"
 		},
 		{
-			"id": "1",
 			"name": "Coding Squad",
 			"description": "Coding to the next level.",
-			"feed": [
-				{
-					"author": "0",
-					"message": "Join my team!",
-					"timestamp": "2015-02-12T02:04:08-08:00"
-				},
-				{
-					"author": "2",
-					"message": "Hey man! I'm interested. Add me on FB!",
-					"timestamp": "2015-02-12T02:05:08-08:00"
-				}
-			],
 			"tags": ["coding"],
-			"members": ["2"],
-			"admin": "0",
 			"cover": "http://mitosystems.com/wp-content/uploads/2014/11/perfectly-coded-small-business-websitse-1100x825.jpg"
 		}
 	],
