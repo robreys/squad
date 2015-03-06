@@ -52,8 +52,8 @@
           </div>
 
           {{#if edit}}
-            <button type="submit" class="button button-block"/>Done</button>
+            <button type="submit" class="button button-block" onclick="woopra.track('b_ver_edit_squad')" />Done</button>
           {{else}}
-            <button type="submit" class="button button-block"/>Create</button>
+            <button type="submit" class="button button-block" onclick="woopra.track('b_ver_create_squad')"/>Create</button>
           {{/if}}
 </form>
