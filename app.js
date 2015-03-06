@@ -25,8 +25,20 @@ var app = express();
 app.use(cookieParser());
 app.use(session({secret: '1234567890QWERTY'}));
 
+var random = true;
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+//randomly assign value
+var random_num = Math.random();
+console.log(random_num);
+if (random_num > 0.5 && random) {
+    app.set('views', path.join(__dirname, 'views_2'));
+    app.use(express.static(path.join(__dirname, 'public_2')));
+}
+
+else {
+    app.set('views', path.join(__dirname, 'views'));
+    app.use(express.static(path.join(__dirname, 'public')));
+}
 app.set('view engine', 'hbs');
 // register partials
 hbs.registerPartials(__dirname + 'views/partials');
@@ -41,7 +53,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Add routes here
 app.use('/', router);
