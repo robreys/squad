@@ -38,7 +38,7 @@
                 <div class="b-c-textpane">
 
                     <div id="signup"> 
-                          <h1>Sign Up!</h1>
+                          <h1 id="title" >Sign Up!</h1>
                             <div class="form" style="margin: 0 0;">
                         <form action="/signup" method="post">
                           
@@ -46,13 +46,13 @@
 
                               <div class="field-wrap">
                                
-                                <label >First Name<span class="req">*</span></label>
+                                <label id="first">First Name<span class="req">*</span></label>
                                 <input name="first_name" style="color: white;" type="text" required autocomplete="off" />
                               </div>
 
                               <div class="field-wrap">
                                
-                                 <label>Last Name<span class="req">*</span></label>
+                                 <label id="last">Last Name<span class="req">*</span></label>
                                <input name="last_name" style="color: white;" type="text"required autocomplete="off" />
                              </div>
                             
@@ -66,7 +66,7 @@
                        
 
                             <div class="field-wrap">
-                              <label> Password<span class="req">*</span></label>
+                              <label id="pass"> Password<span class="req">*</span></label>
                               <input name="password" style="color: white;" type="password" {{#unless edit}}required{{/unless}} autocomplete="off"/>
                             </div>
 
@@ -122,6 +122,16 @@
         }
         function changeLabel_Tag(){
             document.getElementById('tags_label').innerHTML = 'Tags';
+        }
+
+         if (document.getElementById("title").innerHTML == "Edit Profile"){
+                  document.getElementById("first").style.opacity = "0";
+                  document.getElementById("last").style.opacity = "0";
+                  document.getElementById("email_address").style.opacity = "0";
+                  document.getElementById("pass").style.opacity = "0";
+                  document.getElementById("tags_label").style.opacity = "0";
+                  
+                  
         }
       </script>
   </body>

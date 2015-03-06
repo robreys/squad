@@ -15,6 +15,11 @@
       bottom: 20px;
     }
 
+label #labels.fade {
+opacity:0;
+}
+
+
       
         
         
@@ -41,9 +46,9 @@
 
                     <div id="signup"> 
                           {{#if edit}}
-                            <h1 style="font-size: 36px;">Edit Squad</h1>
+                            <h1 id="title" style="font-size: 36px;">Edit Squad</h1>
                           {{else}}
-                            <h1 style="font-size: 36px;">Create Squad</h1>
+                            <h1 id="title"style="font-size: 36px;">Create Squad</h1>
                           {{/if}}
                             <div class="form">
                         <form action="/create" method="post">
@@ -52,13 +57,13 @@
 
                               <div class="field-wrap">
                                
-                                <label id="squad-name">Squad Name<span class="req">*</span></label>
+                                <label class="labels.fade" id="squad-name">Squad Name<span class="req">*</span></label>
                                 <input value="{{name}}" name="name" style="color: white; font-size:18px;" type="text" required autocomplete="off" onkeyup="changeLabel_Squad()" />
                               </div>
 
                             <div class="field-wrap">
                               
-                                <label id="tags_label" >Tags: (ie: basketball, coding)<span class="req">*</span></label>
+                                <label class="" id="tags_label" >Tags: (ie: basketball, coding)<span class="req">*</span></label>
                               <input value="{{tags}}" name="tags" style="color: white; font-size:18px;" type="text"required autocomplete="off" onkeyup="changeLabel_Tag()"/>
                             </div>
                 
@@ -74,7 +79,7 @@
                         
 
                              <div class="field-wrap">
-                              <label>Description</label>
+                              <label class="" id="description" >Description</label>
                         <textarea rows="8" cols="50" id="ContactMessage"  style="color: white; font-size:16px;" name="description" >{{description}}</textarea>
                             </div>
 
@@ -130,6 +135,13 @@
 
         function changeLabel_Tag(){
             document.getElementById('tags_label').innerHTML = 'Tags';
+        }
+
+        if (document.getElementById("title").innerHTML == "Edit Squad"){
+                  document.getElementById("squad-name").style.opacity = "0";
+                  document.getElementById("tags_label").style.opacity = "0";
+                  document.getElementById("description").style.opacity = "0";
+                  
         }
         
       </script>
