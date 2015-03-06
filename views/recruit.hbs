@@ -14,7 +14,7 @@
     <div id="page" class="mm-page">
       <div id="header">
         <div class="header-content">
-          <a href="index.html" class="p-link-home"><img src="http://www.iconsdb.com/icons/preview/white/home-xl.png" width="16px" ></a>
+          <a href="/home" class="p-link-home"><img src="http://www.iconsdb.com/icons/preview/white/home-xl.png" width="16px" ></a>
           
           <a href="javascript:history.back();" class="p-link-back"><img src="http://www.iconsdb.com/icons/preview/white/undo-4-xl.png" width="16px;"></a>
         </div>
@@ -39,7 +39,7 @@
             </div>
             <div class="about-sDetails">
               <h3>{{first_name}} {{last_name}}</h3>
-              <h4>I am a coder</h4>
+              <h4>{{about}}</h4>
               <div class="a-scl-icons">
                 <div class="blog-tags" >
                   <ul  style="position: relative;">
@@ -84,8 +84,7 @@
             </div> --}}
             <br/>
             <div class="p-single-meta-shares blog-tags" style="text-align: center; float: center;">
-              {{!-- data-req='{"from": "{{../squad_id}}", "to": "{{_id}}"}' --}}
-              <ul><li><a href="#" >Recruit</a></li></ul>
+              <ul><li><a data-req='{"from": "{{../squad_id}}", "to": "{{_id}}"}' class="invite" href="#" >Recruit</a></li></ul>
             </div>
             <br/>
           </div>
@@ -113,3 +112,19 @@
     </div>
   
 <div id="mm-blocker"></div></body>
+{{!-- invitation script --}}
+<script>
+$('.invite').click(function() {
+  var req = $(this).data('req');
+  alert('Invitation sent!');
+  $.post('/invite', req);
+});
+
+$('.rm-notif').click(function(e) {
+  e.preventDefault();
+  $(this).parent().fadeOut().remove();
+  var req = $(this).data('req');
+  $.post('/user/' + req.user_id + '/edit', req);
+  
+});
+</script>

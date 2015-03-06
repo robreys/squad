@@ -15,7 +15,7 @@ router.post('/', function(req, res) {
 			$push: {notifications: message._id}
 		}, function(err) {
 			if (err) console.log(err);
-			res.json();
+			res.send();
 		});
 	});
 

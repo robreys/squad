@@ -37,7 +37,8 @@ userModel
   .find({})
   .exec(onceClear); // callback to continue at
 var addedSquads = false;
-var saveCount = data.users.length + data.squads.length;
+var random_bots = 90;
+var saveCount = data.users.length + data.squads.length + random_bots;
 // Step 3: load the data from the JSON file
 function onceClear(err) {
   if(err) console.log(err);
@@ -70,6 +71,34 @@ function onceClear(err) {
         mongoose.connection.close();
       }
     });
+  }
+
+  var tags = ["basketball", "coding", "study"];
+  for (var k = 0; k < random_bots; k++) {
+    var random_num = Math.random();
+    if (random_num < 0.33) {
+      random_num = 0;
+    }
+    else if (random_num < 0.66) {
+      random_num = 1;
+    }
+    else {
+      random_num = 2;
+    }
+    (new userModel({
+      "first_name": "Persona_" + k,
+      "last_name": "Apellido",
+      "about": "I am a bot",
+      "password": "password",
+      "email": "pe" + k + "@gmail.com",
+      "tags": [tags[random_num]]      
+    })).save(function(err) {
+      if (err) console.log(err);
+      if (--saveCount <= 0) {
+        console.log('DONE');
+        mongoose.connection.close();
+      }
+    })
   }
 }
 
