@@ -51,7 +51,11 @@ opacity:0;
                             <h1 id="title"style="font-size: 36px;">Create Squad</h1>
                           {{/if}}
                             <div class="form">
-                        <form action="/create" method="post">
+                        {{#if edit}}
+                          <form action="/squad/{{_id}}/edit" method="post">
+                        {{else}}
+                          <form action="/create" method="post">
+                        {{/if}}
                           
                               
 

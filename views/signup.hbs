@@ -25,8 +25,8 @@
       <!-- Header -->
       <div id="header">
         <div class="header-content">
-          <a href="/home" class="p-link-home"><img src="img/squad-crop.png" width="300px" ></a>
-          <a href="/home" class="p-link-back"><img src="img/icons/arrow-24.ico" width="16px;"></a>
+          <a href="/home" class="p-link-home"><img src="/img/squad-crop.png" width="300px" ></a>
+          <a href="/home" class="p-link-back"><img src="/img/icons/arrow-24.ico" width="16px;"></a>
         </div>
       </div>
       <!-- Content -->
@@ -38,31 +38,41 @@
                 <div class="b-c-textpane">
 
                     <div id="signup"> 
-                          <h1 id="title" >Sign Up!</h1>
+                          {{#if edit}}
+                            <h1 id="title" >Edit Profile</h1>
+                            
+                          {{else}}
+                            <h1 id="title" >Sign Up!</h1>
+                          {{/if}}
                             <div class="form" style="margin: 0 0;">
-                        <form action="/signup" method="post">
+                        {{#if edit}}
+                          <form action="/user/{{_id}}/edit" method="post">
+                        {{else}}
+                          <form action="/signup" method="post">
+                        {{/if}}
                           
                               
 
                               <div class="field-wrap">
                                
                                 <label id="first">First Name<span class="req">*</span></label>
-                                <input name="first_name" style="color: white;" type="text" required autocomplete="off" />
+                                <input value="{{first_name}}" name="first_name" style="color: white;" type="text" required autocomplete="off" />
                               </div>
 
                               <div class="field-wrap">
                                
                                  <label id="last">Last Name<span class="req">*</span></label>
-                               <input name="last_name" style="color: white;" type="text"required autocomplete="off" />
+                               <input value="{{last_name}}" name="last_name" style="color: white;" type="text"required autocomplete="off" />
                              </div>
                             
 
+                            {{#unless edit}}
                             <div class="field-wrap">
                              
                                 <label id="email_address">UCSD Email Address<span class="req">*</span></label>
                               <input name="email" style="color: white;" type="email"required autocomplete="off" onkeyup="changeLabel_Email()"/>
                             </div>
-
+                            {{/unless}}
                        
 
                             <div class="field-wrap">
@@ -76,11 +86,33 @@
                             </div>
 
                             <div class="field-wrap">
-                              
+                                
                                 <label id="tags_label" >Tags: (ie: basketball, coding)<span class="req">*</span></label>
-                                <textarea rows="4" cols="50" id="Tags"  style="color: white; font-size:16px;"required autocomplete="off"  name="tags" onkeyup="changeLabel_Tag()"></textarea>
+                                <textarea rows="4" cols="50" id="Tags"  style="color: white; font-size:16px;"required autocomplete="off"  name="tags" onkeyup="changeLabel_Tag()">{{tags}}</textarea>
                               
                             </div>
+
+                            <div class="field-wrap">
+                                
+                                <label id="about" >Tell us about yourself!<span class="req">*</span></label>
+                                <textarea rows="4" cols="50"  style="color: white; font-size:16px;"required autocomplete="off"  name="about" onkeyup="changeLabel_About()">{{about}}</textarea>
+                              
+                            </div>
+                            {{#if edit}}
+                        <button type="submit" class="button button-block" style=" border: 0;
+                                            outline: none;
+                                            border-radius: 0;
+                                            padding: 15px 0;
+                                            font-size: 2rem;
+                                            font-weight: 600;
+                                            text-transform: uppercase;
+                                          letter-spacing: .1em;
+                                          background: #1ab188;
+                                            color: #ffffff;
+                                            -webkit-transition: all 0.5s ease;
+                                                transition: all 0.5s ease;
+                                            -webkit-appearance: none;"/>Edit</button>
+                            {{else}}
                         <button type="submit" class="button button-block" style=" border: 0;
                                             outline: none;
                                             border-radius: 0;
@@ -94,8 +126,9 @@
                                             -webkit-transition: all 0.5s ease;
                                                 transition: all 0.5s ease;
                                             -webkit-appearance: none;"/>Get Started</button>
+                              {{/if}}
                               <p style="text-align:center;font-size:16px;color:#fff; padding-top:10px;">Already have an account? <a style="color:#179B77" href='/login'>Login here.</a></p>
-                            
+         
                           </form>
                           </div><!-- form -->
                      </div>
@@ -123,13 +156,15 @@
         function changeLabel_Tag(){
             document.getElementById('tags_label').innerHTML = 'Tags';
         }
+        function changeLabel_About() {
+          document.getElementById('about').innerHTML = 'About';
+        }
 
          if (document.getElementById("title").innerHTML == "Edit Profile"){
                   document.getElementById("first").style.opacity = "0";
                   document.getElementById("last").style.opacity = "0";
-                  document.getElementById("email_address").style.opacity = "0";
-                  document.getElementById("pass").style.opacity = "0";
                   document.getElementById("tags_label").style.opacity = "0";
+
                   
                   
         }

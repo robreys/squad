@@ -27,6 +27,22 @@ router.get('/:id/edit', function(req, res) {
 		}
 	});
 });
+
+router.get('/:id/squads', function(req, res) {
+	userModel.findById(req.params.id, {
+		password: 0
+	})
+	.populate('squads')
+	.exec(function(err, user) {
+		if (err) console.log(err);
+		if (user._id != req.session.user_id) {
+			res.redirect('/login?err=unauthorized');
+		}
+		else {
+			res.render('find', user);
+		}
+	});
+});
 router.post('/:id/edit', function(req, res) {
 	//unauthorized edit
 	if (req.session.user_id != req.params.id) {
@@ -38,13 +54,14 @@ router.post('/:id/edit', function(req, res) {
 			update.$pull = {notifications: req.body.notif_id};
 		}
 		else {
-			if (req.body.email != '') update.email = req.body.email;
 			if (req.body.first_name != '') update.first_name = req.body.first_name;
 			if (req.body.last_name != '') update.last_name = req.body.last_name;
 			if (req.body.password != '') update.password = req.body.password;
+			if (req.body.about != '') update.about = req.body.about;
 			update.tags = req.body.tags.match(/\b[\w]+\b/g);
 		}
-		userModel.findByIdAndUpdate(req.params.id, update, function(err) {
+		//console.log(update);
+		userModel.findByIdAndUpdate(req.params.id, update, function(err, user) {
 				if (err) console.log(err);
 				if (req.body.type == 'rm-notif') {
 					messageModel.findByIdAndRemove(req.body.notif_id, function(err) {
@@ -53,6 +70,7 @@ router.post('/:id/edit', function(req, res) {
 					});
 				}
 				else
+					//console.log(user);
 					res.redirect('/user/' + req.params.id + '?edit=success');
 			});
 	}

@@ -47,6 +47,7 @@
 		{
 			"first_name": "Roberto",
 			"last_name": "Reyes",
+			"about": "person",
 			"password": "password",
 			"email": "rob@gmail.com",
 			"tags": ["basketball", "coding"]
@@ -54,6 +55,7 @@
 		{
 			"first_name": "Alexes",
 			"last_name": "Macedo",
+			"about": "person",
 			"password": "password",
 			"email": "ama@gmail.com",
 			"tags": ["basketball", "coding"]
@@ -61,6 +63,7 @@
 		{
 			"first_name": "Alex",
 			"last_name": "Buity",
+			"about": "person",
 			"password": "password",
 			"email": "abu@gmail.com",
 			"tags": ["coding"]
