@@ -22,7 +22,7 @@
       <div class="bannerPane">
         <div class="overlay"></div>
         <div class="s-banner-content">
-          <div><img width="100" src="img/squad-crop.png"></div>
+          <div><img width="100" src="/img/squad-crop.png"></div>
           Recruiting for {{squad_name}}
         </div>
       </div>
@@ -43,7 +43,7 @@
               <div class="a-scl-icons">
                 <div class="blog-tags" >
                   <ul  style="position: relative;">
-                  <li><img src="img/icons/tag-16.ico"></li>
+                  <li><img src="/img/icons/tag-16.ico"></li>
                   {{#each tags}}
                   <li><a href="#">{{this}}</a></li>
                  
@@ -52,54 +52,36 @@
             </div>
             </div>
             <div class="about-openBtn">
-              <img src="img/icons/plus-24.ico">
+              <img src="/img/icons/plus-24.ico">
             </div>
             <div class="o-person-content" style="overflow: hidden; display: none;">
 
           <div class="prod-single-content">
             <h3 class="title" style="font-size: 12px"><strong>Email</strong>: {{email}}</h3>
             <br/>
-            <p>
-              Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            </p>
+            <p>{{about}}</p>
 
             <br/>
             <div class="blog-tags" >
                   <ul  style="position: relative;">
-                  <li><img src="img/icons/tag-16.ico"></li>
+                  <li><img src="/img/icons/tag-16.ico"></li>
                   <li><strong>Tags</strong>: </li>
                   {{#each tags}}
                   <li><a href="#">{{this}}</a></li>
-                  {{/each}}
-                  <li><a href="#">Coding</a></li>
-                  <li><a href="#">Dance</a></li>
-                  <li><a href="#">Basketball</a></li>
-                  <li><a href="#">Coding</a></li>
-                  <li><a href="#">Dance</a></li>
-                  <li><a href="#">Basketball</a></li>
-                  <li><a href="#">Coding</a></li>
-                  <li><a href="#">Dance</a></li>
-                  <li><a href="#">Basketball</a></li>
-                  <li><a href="#">Coding</a></li>
-                  <li><a href="#">Dance</a></li>
-                  <li><a href="#">Basketball</a></li>
-                  <li><a href="#">Coding</a></li>
-                  <li><a href="#">Dance</a></li>
-                  <li><a href="#">Basketball</a></li>
-                
+                  {{/each}}               
                 
                   </ul>
             </div>
             
-            <div class="blog-tags" >
+            {{!-- <div class="blog-tags" >
                   <ul  style="position: relative;">
-                  <li><img src="img/icons/conference-16.ico"></li>
+                  <li><img src="/img/icons/conference-16.ico"></li>
                   <li><strong>Squads</strong>: </li>
                   
                   <li><a href="#">Coders4Life</a></li>
                   <li><a href="#">Money Shooters</a></li>
                   </ul>
-            </div>
+            </div> --}}
             <br/>
             <div class="p-single-meta-shares blog-tags" style="text-align: center; float: center;">
               {{!-- data-req='{"from": "{{../squad_id}}", "to": "{{_id}}"}' --}}

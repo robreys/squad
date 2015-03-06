@@ -2,7 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-  res.render('login');
+	if (req.query.error) {
+		res.render('login', {error: 'invalid login.'});
+	}
+	else {
+		res.render('login');
+	}
 });
 
 router.post('/', function(req, res) {
@@ -14,7 +19,7 @@ router.post('/', function(req, res) {
 			if (err) console.log(err);
 			//user not found
 			if (!user) {
-				res.redirect('/login?err=invalid');
+				res.redirect('/login?error=invalid');
 			}
 			//user found
 			else {

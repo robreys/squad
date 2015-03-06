@@ -4,9 +4,11 @@ var router = express.Router();
 router.get('/:id', function(req, res){
 	squadModel.findById(req.params.id)
 		.populate('admin', '_id first_name last_name')
-		.populate('feed')
+		.populate({
+			path: 'feed',
+			options: { limit: 5, sort: {_id: -1} }
+		})
 		.exec(function(err, squad) {
-			//console.log(squad.feed);
 			squad.user_id = req.session.user_id;
 			if (squad.admin._id == req.session.user_id) {
 				squad.adminMode = true;
@@ -113,7 +115,7 @@ router.get('/:id/recruit', function(req, res) {
 			userModel.find({
 				tags: {$in: squad.tags},
 				_id: {$nin: squad.members}
-			}, {password: 0, email: 0, squads: 0})
+			}, {password: 0, squads: 0})
 				.limit(10)
 				.exec(function(err, users) {
 					if (err) console.log(err);

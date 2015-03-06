@@ -7,7 +7,7 @@
     <div id="page">
       <div id="header">
         <div class="header-content">
-          <a href="home.html" class="p-link-home"><img src="/img/icons/home-24.ico" width="16px" ></a>
+          <a href="/home" class="p-link-home"><img src="/img/icons/home-24.ico" width="16px" ></a>
           
           <a href="javascript:history.back();" class="p-link-back"><img src="/img/icons/arrow-24.ico" width="16px;"></a>
         </div>
@@ -37,16 +37,7 @@
                   <li><strong>Tags</strong>: </li>
                   {{#each tags}}
                     <li><a href="#">{{this}}</a></li>
-                  {{/each}}
-                  <li><a href="#">Coding</a></li>
-                  <li><a href="#">Dance</a></li>
-                  <li><a href="#">Basketball</a></li>
-                  <li><a href="#">Coding</a></li>
-                  <li><a href="#">Dance</a></li>
-                  <li><a href="#">Basketball</a></li>
-
-                
-                
+                  {{/each}}  
                   </ul>
             </div>
             
@@ -58,10 +49,6 @@
                   <li><a href="/user/{{_id}}">{{first_name}} {{last_name}}</a></li>
       
                   {{/each}}
-                  <li><a href="#">Alex Test</a></li>
-                  <li><a href="#">Roberto Test</a></li>
-                  <li><a href="#">John Test</a></li>
-
                   </ul>
             </div>
 
@@ -99,9 +86,9 @@
             <li>
                 <img src="http://lorempixel.com/output/people-q-c-150-150-1.jpg" />
                 <p class="c-a-name"><strong>{{author.first_name}} {{author.last_name}}</strong></p>
-                <p class="comment-date">{{timestamp}}</p>
+                <p class="comment-date">{{format_date timestamp}}</p>
                 <p class="desc">
-                  {{message}} Lorem Ipsum 
+                  {{message}} 
                 </p>
               </li>
            {{/each}}
@@ -112,7 +99,7 @@
                   
                   
                   <label>Message</label>
-                  <textarea id="ContactMessage" name="text" placeholder="Message"></textarea>
+                  <textarea id="ContactMessage" name="message" placeholder="Message"></textarea>
                   
                   <input type="submit"  class="btn-normal" id="SubmitContact" value="Comment">
                   

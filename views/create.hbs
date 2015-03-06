@@ -26,9 +26,9 @@
       <!-- Header -->
       <div id="header">
         <div class="header-content">
-          <a href="/home" class="p-link-home"><img src="img/icons/home-24.ico" width="16px" ></a>
+          <a href="/home" class="p-link-home"><img src="/img/icons/home-24.ico" width="16px" ></a>
           
-          <a href="javascript:history.back();" class="p-link-back"><img src="img/icons/arrow-24.ico" width="16px;"></a>
+          <a href="javascript:history.back();" class="p-link-back"><img src="/img/icons/arrow-24.ico" width="16px;"></a>
         </div>
       </div>
       <!-- Content -->
@@ -40,7 +40,11 @@
                 <div class="b-c-textpane">
 
                     <div id="signup"> 
-                          <h1 style="font-size: 36px;">Create Squad</h1>
+                          {{#if edit}}
+                            <h1 style="font-size: 36px;">Edit Squad</h1>
+                          {{else}}
+                            <h1 style="font-size: 36px;">Create Squad</h1>
+                          {{/if}}
                             <div class="form">
                         <form action="/create" method="post">
                           
@@ -49,13 +53,13 @@
                               <div class="field-wrap">
                                
                                 <label id="squad-name">Squad Name<span class="req">*</span></label>
-                                <input name="name" style="color: white; font-size:18px;" type="text" required autocomplete="off" onkeyup="changeLabel_Squad()" />
+                                <input value="{{name}}" name="name" style="color: white; font-size:18px;" type="text" required autocomplete="off" onkeyup="changeLabel_Squad()" />
                               </div>
 
                             <div class="field-wrap">
                               
                                 <label id="tags_label" >Tags: (ie: basketball, coding)<span class="req">*</span></label>
-                              <input name="tags" style="color: white; font-size:18px;" type="text"required autocomplete="off" onkeyup="changeLabel_Tag()"/>
+                              <input value="{{tags}}" name="tags" style="color: white; font-size:18px;" type="text"required autocomplete="off" onkeyup="changeLabel_Tag()"/>
                             </div>
                 
                             <div class="field-wrap">
@@ -71,24 +75,39 @@
 
                              <div class="field-wrap">
                               <label>Description</label>
-                        <textarea rows="8" cols="50" id="ContactMessage"  style="color: white; font-size:16px;" name="description" ></textarea>
+                        <textarea rows="8" cols="50" id="ContactMessage"  style="color: white; font-size:16px;" name="description" >{{description}}</textarea>
                             </div>
 
-                        <button type="submit" class="button button-block" style=" border: 0;
-                                            outline: none;
-                                            border-radius: 0;
-                                            padding: 15px 0;
-                                            font-size: 2rem;
-                                            font-weight: 600;
-                                            text-transform: uppercase;
-                                          letter-spacing: .1em;
-                                          background: #1ab188;
-                                            color: #ffffff;
-                                            -webkit-transition: all 0.5s ease;
-                                                transition: all 0.5s ease;
-                                            -webkit-appearance: none;"/>Done</button>
-                              
-                            
+                        {{#if edit}}
+                          <button type="submit" class="button button-block" style=" border: 0;
+                                              outline: none;
+                                              border-radius: 0;
+                                              padding: 15px 0;
+                                              font-size: 2rem;
+                                              font-weight: 600;
+                                              text-transform: uppercase;
+                                            letter-spacing: .1em;
+                                            background: #1ab188;
+                                              color: #ffffff;
+                                              -webkit-transition: all 0.5s ease;
+                                                  transition: all 0.5s ease;
+                                              -webkit-appearance: none;"/>Edit</button>
+                        {{else}}
+                          <button type="submit" class="button button-block" style=" border: 0;
+                                              outline: none;
+                                              border-radius: 0;
+                                              padding: 15px 0;
+                                              font-size: 2rem;
+                                              font-weight: 600;
+                                              text-transform: uppercase;
+                                            letter-spacing: .1em;
+                                            background: #1ab188;
+                                              color: #ffffff;
+                                              -webkit-transition: all 0.5s ease;
+                                                  transition: all 0.5s ease;
+                                              -webkit-appearance: none;"/>Done</button>
+                        {{/if}}
+                                          
                           </form>
                           </div><!-- form -->
                      </div>

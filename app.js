@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var router = require('./router');
 var hbs = require('hbs');
 var mongoose = require('mongoose');
+var moment = require('moment');
 
 var local_database_name = 'squad';
 var local_database_uri  = 'mongodb://localhost/' + local_database_name
@@ -29,6 +30,10 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 // register partials
 hbs.registerPartials(__dirname + 'views/partials');
+// register helpers
+hbs.registerHelper('format_date', function(timestamp) {
+    return moment(timestamp).fromNow();
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
