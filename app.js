@@ -24,15 +24,21 @@ squadModel = require('./models/squad');
 messageModel = require('./models/message');
 
 var app = express();
-
+//cookie setup
 app.use(cookieParser());
 app.use(session({secret: '1234567890QWERTY'}));
 
-var random = false;
-var select = ''; //or alternatively '_2'
+//randomly display views
+/*
+    NOTE: Refreshing a page will not randomize the view. In order for
+    a random view to appear, you must restart the server process.
+    ie: if running on localhost, cancel process, and run npm start again.
+    (not sure how to do this on heroku)
+*/
+var random = false; //whether view should be randomized
+var select = ''; //or alternatively '_2' for second directory
 version = null;
-// view engine setup
-//randomly assign value
+//assign view
 var random_num = Math.random();
 if (random == false) {
     app.set('views', path.join(__dirname, 'views' + select));
