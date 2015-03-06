@@ -26,11 +26,15 @@ app.use(cookieParser());
 app.use(session({secret: '1234567890QWERTY'}));
 
 var random = true;
+var select = ''; //or alternatively '_2'
 // view engine setup
 //randomly assign value
 var random_num = Math.random();
-console.log(random_num);
-if (random_num > 0.5 && random) {
+if (random == false) {
+    app.set('views', path.join(__dirname, 'views' + select));
+    app.use(express.static(path.join(__dirname, 'public' + select)));    
+}
+else if (random_num > 0.5) {
     app.set('views', path.join(__dirname, 'views_2'));
     app.use(express.static(path.join(__dirname, 'public_2')));
 }
