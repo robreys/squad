@@ -1,6 +1,9 @@
 
-
-
+<style>
+small#error.fade {
+opacity:0;
+}
+</style>
   <body class="o-page p-home">
     <div id="page">
       <!-- Header -->
@@ -26,7 +29,12 @@
                           <h1>Welcome Back!</h1>
                           <div class="form">
                           <form action="/login" method="post">
-          
+                            {{#if error}}
+                            <small id="error" class="error">{{error}}</small>
+                            {{/if}}
+                            
+                           
+                          
                             <div class="field-wrap">
                               <label id="email_address">
                                Email Address<span class="req">*</span>
@@ -76,7 +84,9 @@
       <script>
           function changeLabel_Email(){
             document.getElementById('email_address').innerHTML = 'Email Add.';
-          
-        }
-      </script>
+                
+                error.className = error.className ? '' : 'fade';
+                 document.getElementById("error").innerHTML = "";
+          }
+</script>
   </body>
