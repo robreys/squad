@@ -25,6 +25,7 @@ router.get('/:id', function(req, res){
 });
 
 router.get('/:id/edit', function(req, res) {
+
 	squadModel.findById(req.params.id, function(err, squad) {
 		if (err) console.log(err);
 		if (squad.admin != req.session.user_id) {
@@ -40,6 +41,7 @@ router.get('/:id/edit', function(req, res) {
 });
 
 router.post('/:id/edit', function(req, res) {
+	woopra.track(version + '_ver_edit_squad');
 	var tags = req.body.tags.toLowerCase();
 	tags = tags.match(/\b[\w]+\b/g);
 	squadModel.findByIdAndUpdate(req.params.id, {
@@ -102,6 +104,7 @@ router.get('/:id/leave', function(req, res) {
 });
 
 router.get('/:id/recruit', function(req, res) {
+	woopra.track(version + '_ver_recruit');
 	//retrieve squad
 	squadModel.findById(req.params.id, 'admin tags members name', function(err, squad) {
 		if (err) console.log(err);

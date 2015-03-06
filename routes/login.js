@@ -23,6 +23,11 @@ router.post('/', function(req, res) {
 			}
 			//user found
 			else {
+				woopra.identify(user.email, {
+				    first_name: user.first_name,
+				    last_name: user.last_name
+				}).push();
+				
 				//create user session
 				req.session.user_id = user._id;
 				res.redirect('/home');

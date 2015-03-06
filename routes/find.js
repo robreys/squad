@@ -1,4 +1,5 @@
 module.exports = function(req, res){
+	woopra.track(version + '_ver_find_squad');
 	//retrieve user
 	userModel.findById(req.session.user_id, 'tags', function(err, user) {
 		if (err) console.log(err);

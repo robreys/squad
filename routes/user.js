@@ -48,7 +48,10 @@ router.post('/:id/edit', function(req, res) {
 	if (req.session.user_id != req.params.id) {
 		res.redirect('/user/' + req.params.id + '?err=unauthorized');
 	}
+
 	else {
+		woopra.track(version + '_ver_edit_profile');
+		console.log(version + '_ver_edit_profile');
 		var update = {};
 		if (req.body.type && req.body.type == 'rm-notif') {
 			update.$pull = {notifications: req.body.notif_id};

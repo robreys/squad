@@ -9,6 +9,7 @@ router.post('/', function(req, res) {
 	if (!req.session.user_id) {
 		res.redirect('/login');
 	}
+	woopra.track(version + '_ver_create_squad');
 	var tags = req.body.tags.match(/\b[\w]+\b/g);
 	//create squad
 	(new squadModel({

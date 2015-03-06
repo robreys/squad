@@ -10,6 +10,9 @@ var hbs = require('hbs');
 var mongoose = require('mongoose');
 var moment = require('moment');
 
+var Woopra = require('woopra');
+woopra = new Woopra('squad-base.herokuapp.com');
+
 var local_database_name = 'squad';
 var local_database_uri  = 'mongodb://localhost/' + local_database_name
 var database_uri = process.env.MONGOLAB_URI || local_database_uri
@@ -25,23 +28,27 @@ var app = express();
 app.use(cookieParser());
 app.use(session({secret: '1234567890QWERTY'}));
 
-var random = true;
+var random = false;
 var select = ''; //or alternatively '_2'
+version = null;
 // view engine setup
 //randomly assign value
 var random_num = Math.random();
 if (random == false) {
     app.set('views', path.join(__dirname, 'views' + select));
-    app.use(express.static(path.join(__dirname, 'public' + select)));    
+    app.use(express.static(path.join(__dirname, 'public' + select)));  
+    version = 'a';
 }
 else if (random_num > 0.5) {
     app.set('views', path.join(__dirname, 'views_2'));
     app.use(express.static(path.join(__dirname, 'public_2')));
+    version = 'b';
 }
 
 else {
     app.set('views', path.join(__dirname, 'views'));
     app.use(express.static(path.join(__dirname, 'public')));
+    version = 'a';
 }
 app.set('view engine', 'hbs');
 // register partials
