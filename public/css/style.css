@@ -214,7 +214,7 @@ a.menu-btn { opacity:0; }
 	}
 }
 
-#Logo { display: inline-block; padding-top: 15px; }
+#Logo { padding-top: 15px; }
 #Logo.svg { }
 #Logo.svg img { top: -9px; position: relative; }
 #Logo img { }
