@@ -54,6 +54,7 @@
           <div class="bannerContent fadeFromBottom">
                 <div class="b-c-textpane">
 
+
                     <div id="signup"> 
                           {{#if edit}}
                             <h1 id="title" >Edit Profile</h1>
@@ -103,8 +104,9 @@
                             </div>
 
                             <div class="field-wrap">
-                                
-                                <label id="tags_label" >Tags: (ie: basketball, coding)<span class="req">*</span></label>
+                          
+                               
+                               <label id="tags_label" >Tags: (ie: basketball, coding)<span class="req">*</span></label>
                                 <textarea  id="Tags"  style="color: white; font-size:16px;"required autocomplete="off"  name="tags" onkeyup="changeLabel_Tag()">{{tags}}</textarea>
                               
                             </div>
@@ -128,7 +130,7 @@
                                             color: #ffffff;
                                             -webkit-transition: all 0.5s ease;
                                                 transition: all 0.5s ease;
-                                            -webkit-appearance: none;" onclick="woopra.track('a_ver_edit_profile')"/>Edit</button>
+                                            -webkit-appearance: none;" />Edit</button>
                             {{else}}
                         <button type="submit" class="button button-block" style=" border: 0;
                                             outline: none;
@@ -158,6 +160,8 @@
           About us
         </a> -->
       </div>
+
+
       
       
     </div>
@@ -172,6 +176,8 @@
         }
         function changeLabel_Tag(){
             document.getElementById('tags_label').innerHTML = 'Tags';
+
+
         }
         function changeLabel_About() {
           document.getElementById('about').innerHTML = 'About';
