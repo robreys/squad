@@ -38,8 +38,12 @@
       <div id="content">
         
         
-        
-          <h3 class="title"><img src="/img/icons/tag-24.ico" style="padding-right: 10px"><i></i>Squads based on your tags!</h3>
+          {{#if manage}}
+            <h3 class="title"><img src="/img/icons/tag-24.ico" style="padding-right: 10px"><i></i>Your squads!</h3>
+          {{else}}
+            <h3 class="title"><img src="/img/icons/tag-24.ico" style="padding-right: 10px"><i></i>Squads based on your tags!</h3>
+          {{/if}}
+
           {{#each squads}}
           <article>
           <a href="/squad/{{_id}}">
@@ -61,7 +65,7 @@
                   </ul>
             </div>
           </span>
-            <img src="/img/icons/conference-16.ico"> 4
+            <img src="/img/icons/conference-16.ico"> {{members.length}}
           </div>
         </article>
         {{/each}}
@@ -71,7 +75,13 @@
         
         
       </div>
-      <div class="subFooter">A Squad Company. <a href="/" class="p-link-logout" style="font-size: 12px;"> &nbsp Logout</a></div>
+      <div class="subFooter">
+        <div>A Squad Company.</div>
+        <div>
+          <a href="/" class="p-link-logout" style="font-size: 12px;"> &nbsp Logout</a>
+          <a href="/help" class="p-link-logout" style="font-size: 12px;"> &nbsp Help</a>
+        </div>
+      </div>
       
       
       

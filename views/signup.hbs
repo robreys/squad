@@ -42,7 +42,11 @@
       <!-- Header -->
       <div id="header">
         <div class="header-content">
-          <a href="/home" class="p-link-home"><img src="/img/squad-crop.png" width="300px" ></a>
+        {{#if edit}}
+          <a href="/home" class="p-link-home"><img src="/img/icons/home-24.ico" width="16px" ></a>
+        {{else}}
+          <a href="/" class="p-link-home"><img src="/img/squad-crop.png" width="300px" ></a>
+        {{/if}}
           <a href="/home" class="p-link-back"><img src="/img/icons/arrow-24.ico" width="16px;"></a>
         </div>
       </div>
@@ -145,8 +149,9 @@
                                             -webkit-transition: all 0.5s ease;
                                                 transition: all 0.5s ease;
                                             -webkit-appearance: none;"/>Get Started</button>
-                              {{/if}}
                               <p style="text-align:center;font-size:16px;color:#fff; padding-top:10px;">Already have an account? <a style="color:#179B77" href='/login'>Login here.</a></p>
+                              {{/if}}
+
          
                           </form>
                           </div><!-- form -->

@@ -359,7 +359,7 @@ ul {
 
 .big:hover,
 .small:hover {
-  background: white
+  background: #ccc;
 }
 
 .big {

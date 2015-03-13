@@ -39,6 +39,7 @@ router.get('/:id/squads', function(req, res) {
 			res.redirect('/login?err=unauthorized');
 		}
 		else {
+			user.manage = true;
 			res.render('find', user);
 		}
 	});
